@@ -1,0 +1,20 @@
+.blue {
+    color: #274fa6;
+}
+
+.bordure {
+    border-left: 0.1rem solid #274fa6;
+    height: 60px;
+    margin-top: 6px;
+}
+
+.align {
+    margin-top: 15px;
+}
+
+.top {
+    margin-top: 50px;
+}
+
+
+/* formulaire */

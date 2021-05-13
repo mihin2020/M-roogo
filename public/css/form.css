@@ -1,0 +1,8 @@
+.image {
+    background-image: url(../images/bail.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 650px;
+    ;
+}
