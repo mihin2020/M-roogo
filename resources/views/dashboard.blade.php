@@ -1,6 +1,5 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -26,9 +25,8 @@
 
     <title>Bailleur</title>
 </head>
-
- <body>
-    <div class="site-mobile-menu site-navbar-target">
+<body>
+     <div class="site-mobile-menu site-navbar-target">
         <div class="site-mobile-menu-header">
             <div class="site-mobile-menu-close mt-3">
                 <span class="icon-close2 js-menu-toggle"></span>
@@ -75,10 +73,17 @@
                                 <a href="#" class="nav-link blue font-weight-bolder mr-lg-2"><span class="blue">Mes biens</span></a>
                                 <ul class="dropdown arrow-top">
                                     <li>
-                                        <a href="#" class="nav-link font-weight-bolder"><span class="blue">Ajouter</span></a>
+                                        <a href="" role="button" type="button" class="nav-link font-weight-bolder"  data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap"  class="modal-dialog modal-xl">
+                                        <span class="blue">Ajouter</span>
+                                        </a>
                                     </li>
                                 </ul>
                             </li>
+                                         
+                                                <!-- modal form -->
+
+                           
+                            <!-- end modal -->
 
                             <li class="">
                                 <a href="#" class="nav-link blue font-weight-bolder mr-lg-2"><span class="blue">Mes locataires</span></a>
@@ -104,18 +109,68 @@
 
     <section>
       <div class='col-xs-12 image'>
-        <!-- <img src="images/bail.png " width="100%" height="675px" alt=""> -->
-          <div class='container-fluid'>
+         <!-- <img src="images/bail.png " width="100%" height="675px" alt="">  -->
+         <div class='container-fluid'>
             <div class='col-md-7 col-xs-7'>
                 <h1 class='text-white font-weight-bolder'> Avec M'Roogo publier et optimiser la gestion de vos bien en location</h1>
             </div>
             <div class='offset-5'>
-                
             </div>
           </div>
       </div>
     </section>
+        <div class="container">
+            <div class="row">
+                <div class="offset-"></div>
+                <div class="col-md-12 col-xs-12">
+                    <h1 class="font-weight-bolder blue text-center mb-2">Mes biens</h1>
+                </div>
+            </div>
+        </div>
+      
+<!-- 
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Open modal for @getbootstrap</button> -->
+
+<script>
+    function readURL(input) {
+  if (input.files && input.files[0]) {
+
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+      $('.image-upload-wrap').hide();
+
+      $('.file-upload-image').attr('src', e.target.result);
+      $('.file-upload-content').show();
+
+      $('.image-title').html(input.files[0].name);
+    };
+
+    reader.readAsDataURL(input.files[0]);
+
+  } else {
+    removeUpload();
+  }
+}
+
+function removeUpload() {
+  $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+  $('.file-upload-content').hide();
+  $('.image-upload-wrap').show();
+}
+$('.image-upload-wrap').bind('dragover', function () {
+    $('.image-upload-wrap').addClass('image-dropping');
+  });
+  $('.image-upload-wrap').bind('dragleave', function () {
+    $('.image-upload-wrap').removeClass('image-dropping');
+});
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
 </body>
+</html>
 
 
 

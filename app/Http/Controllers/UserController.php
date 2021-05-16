@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Bien;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
@@ -9,6 +10,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\User;
 use App\Parametre;
+use App\Ressource;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -17,6 +19,7 @@ class UserController extends Controller {
 
  // -------------------- [ user registration view ] -------------
     public function index() {
+       
         $parametres=Parametre::all();
         return view('/inscription',compact('parametres'));
     }
@@ -24,17 +27,6 @@ class UserController extends Controller {
 // --------------------- [ Register user ] ----------------------
     public function userPostRegistration(Request $request) {
 
-        // validate form fields
-        // $request->validate([
-        //         'role'              =>      'required',
-        //         'first_name'        =>      'required',
-        //         'last_name'         =>      'required',
-        //         'email'             =>      'required|email',
-        //         'phone'             =>      'required|max:10',
-        //         'password'          =>      'required|min:6',
-        //         'confirm_password'  =>      'required|same:password',
-                
-        //     ]);
             request()->validate(
                 [
                     'role'=> ['required'],
@@ -57,11 +49,11 @@ class UserController extends Controller {
         $utilisateurs->phone =$request->input('phone');
         $utilisateurs->password = Hash::make(request('password'));
         $utilisateurs->save();
-         return 'ok my guy';
+         
         
         // if registration success then return with success message
         if(!is_null($utilisateurs)) {
-            return back()->with('success', 'You have registered successfully.');
+            return back()->with('success', 'Votre inscription a été effectué avec succes');
         }
 
         // else return with error message
@@ -97,7 +89,7 @@ class UserController extends Controller {
             return 'locataire';
 
         }else {
-            return back()->with('error', 'Whoops! invalid username or password.');
+            return back()->with('error', 'Email ou Mot de passe incorrect');
         }
     }
 
@@ -107,7 +99,9 @@ class UserController extends Controller {
 
         // check if user logged in
         if(Auth::check()) {
-            return view('dashboard');
+            $parametre_biens=Bien::all();
+            $parametre_ressources=Ressource::all();
+            return view('dashboard',compact('parametre_biens','parametre_ressources'));
         }
 
         return redirect::to("/connexion")->withError('Oopps! You do not have access');
