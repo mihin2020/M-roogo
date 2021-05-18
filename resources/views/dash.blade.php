@@ -94,6 +94,13 @@
                             </select>
                         </div>
                         <div class="form-group">
+                            <label for="exampleInputText">Garage</label>
+                            <select class="form-control " name="garage">
+                                <option value="garage">garage</option>
+                                <option value="Non disponible">Non disponible</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
                             <label for="exampleInputText">statut</label>
                             <select class="form-control " name="statut">
                                 <option value="A louer">A louer</option>

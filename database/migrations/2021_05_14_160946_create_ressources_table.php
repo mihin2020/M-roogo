@@ -20,6 +20,7 @@ class CreateRessourcesTable extends Migration
             $table->string('confort');
             $table->string('carreaux');
             $table->string('meuble');
+            $table->string('garage');
             $table->string('statut');
             $table->timestamps();
         });

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Ajout_bien;
 use App\Bien;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -80,7 +81,7 @@ class UserController extends Controller {
 
         $userCredentials = $request->only('email', 'password');
         $recuperation = DB::select('select role_id  from users where email=?',[$request->input('email')]);
-
+        // $recuperation = User::all();
         // check user using auth function
         if (Auth::attempt($userCredentials)&& $recuperation[0]->role_id ==1) {
             return redirect()->intended('dashboard');
@@ -99,9 +100,11 @@ class UserController extends Controller {
 
         // check if user logged in
         if(Auth::check()) {
-            $parametre_biens=Bien::all();
-            $parametre_ressources=Ressource::all();
-            return view('dashboard',compact('parametre_biens','parametre_ressources'));
+            $products=Ajout_bien::all()->where('user_id', '=', Auth::user()->id);
+            
+            // $parametre_biens=Bien::all();
+            // $parametre_ressources=Ressource::all();
+            return view('dashboard',compact('products'));
         }
 
         return redirect::to("/connexion")->withError('Oopps! You do not have access');

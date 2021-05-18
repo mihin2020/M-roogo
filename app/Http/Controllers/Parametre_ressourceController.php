@@ -17,6 +17,7 @@ class Parametre_ressourceController extends Controller
                 'carreaux'=> ['required'], 
                 'meuble'=> ['required'], 
                 'statut'=> ['required'], 
+                'garage'=> ['required'],
             ]);
     
             $parametre_ressources = new Ressource();
@@ -26,7 +27,10 @@ class Parametre_ressourceController extends Controller
             $parametre_ressources->carreaux =$request->input('carreaux');
             $parametre_ressources->meuble =$request->input('meuble');
             $parametre_ressources->statut =$request->input('statut');
+            $parametre_ressources->garage =$request->input('garage');
             $parametre_ressources->save();
              return view('/dash');
     }
+
+   
 }

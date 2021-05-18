@@ -6,6 +6,7 @@ use App\Ajout_bien;
 use App\Bien;
 use App\Ressource;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class Ajout_bienController extends Controller
 {
@@ -42,24 +43,30 @@ class Ajout_bienController extends Controller
     {
         $request->validate([
 
-            'type_biens'=>'required',
-            'localisation'=>'required',
-            'nbre_piece'=>'required',
-            'courant'=>'required',
-            'assainissement'=>'required',
-            'plafond'=>'required',
-            'carreaux'=>'required',
+            'type_biens'=>'required|string|',
+            'localisation'=>'required |string|',
+            'nbre_piece'=>'required |string|',
+            'toilette'=>'required|integer|max:4',
+            'courant'=>'required|string|',
+            'assainissement'=>'required|string|',
+            'plafond'=>'required|string|',
+            'carreaux'=>'required|string|',
             'meuble'=>'required',
-            'prix'=>'required',
+            'prix'=>'required|integer|',
             'description'=>'required',
             'statut'=>'required', 
-            // 'picture'=>'required',   
-               
+            'caution'=>'required|integer|max:12', 
+            'avance'=>'required|integer|max:12', 
+            'prestation'=>'required|integer|max:12', 
+                
         ]);
                 $product = new Ajout_bien();
+                $product->user_id = $request->input('user_id');
                 $product->type_biens = $request->input('type_biens');  
                 $product->localisation=$request->input('localisation');
                 $product->nbre_piece=$request->input('nbre_piece');
+                $product->toilette=$request->input('toilette');
+                $product->garage=$request->input('garage');
                 $product->courant=$request->input('courant');
                 $product->assainissement=$request->input('assainissement');
                 $product->plafond=$request->input('plafond');
@@ -68,11 +75,27 @@ class Ajout_bienController extends Controller
                 $product->prix=$request->input('prix');
                 $product->description=$request->input('description');
                 $product->statut=$request->input('statut');
-                // $product->picture=$request->input('picture');
+                $product->caution=$request->input('caution');
+                $product->avance=$request->input('avance');
+                $product->prestation=$request->input('prestation');
                 $product->save(); // Finally, save the record.
-                return 'ok';
+                return redirect()->intended('ajout_bien')->with('success', 'Votre bien a été ajouté avec succes');
         
-        
+                // Ajout_bien::create([
+                //     'user_id'=>auth()->user()->id,
+                //     'type_biens'=>request('type_biens'),
+                //     'localisation'=>request('localisation'),
+                //     'nbre_piece'=>request('nbre_piece'),
+                //     'courant'=>request('courant'),
+                //     'assainissement'=>request('assainissement'),
+                //     'plafond'=>request('plafond'),
+                //     'carreaux'=>request('carreaux'),
+                //     'meuble'=>request('meuble'),
+                //     'prix'=>request('prix'),
+                //     'description'=>request('description'),
+                //     'meuble'=>request('meuble'),
+                //     'statut'=>request('statut'),
+                // ]);
     
     }
 
@@ -84,7 +107,10 @@ class Ajout_bienController extends Controller
      */
     public function show($id)
     {
-        //
+            $products = DB::table('ajout_biens')->get();
+            return view('ajout_bien',[
+                'products'=>$products
+            ]);
     }
 
     /**

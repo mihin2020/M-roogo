@@ -15,23 +15,29 @@ class CreateAjoutBiensTable extends Migration
     {
         Schema::create('ajout_biens', function (Blueprint $table) {
             $table->bigIncrements('id');
-
-            // $table->bigInteger('user_id')->unsigned();
-            // $table->foreign('user_id')->references('id')->on('users');
-
             $table->string('type_biens');
             $table->string('localisation');
             $table->string('nbre_piece');
+            $table->integer('toilette');
+            $table->string('garage');
             $table->string('courant');
             $table->string('assainissement');
             $table->string('plafond');
             $table->string('carreaux');
             $table->string('meuble');
             $table->integer('prix');
-            $table->string('description');
+            $table->text('description');
             $table->string('statut');
-            // $table->string('picture')->nullable();
+            $table->integer('caution')->nullable();
+            $table->integer('avance')->nullable();
+            $table->integer('prestation')->nullable();
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
+
+            $table->foreign('user_id')
+            ->references('id')
+            ->on('users')
+            ->onDelete('cascade');
         });
     }
 
