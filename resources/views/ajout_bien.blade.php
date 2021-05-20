@@ -15,6 +15,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/inscription.css">
 
     <!-- Style -->
     <link rel="stylesheet" href="css/style.css">
@@ -66,7 +67,7 @@
                 <div class="col-12">
                     <nav class="site-navigation text-right ml-auto " role="navigation">
                         <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
-                            <li><a href="#" class="nav-link font-weight-bolder mr-lg-2"><span class="blue">Accueil</span></a>
+                            <li><a href="{{asset('/dashboard')}}" class="nav-link font-weight-bolder mr-lg-2"><span class="blue">Accueil</span></a>
                             </li>
 
                             <li class="has-children ">
@@ -275,19 +276,21 @@
 </section>
 
 
-<footer class="foot" >
-    <div class="container d-flex justify-content-around mt-5 blue foot ">  
-        <div class="col-md-4">
-            <h4 class="font-weight-bolder text-center ">A propos</h4>
+<footer>
+        <div class="container-fluid">
+            <div class="row mt-5 d-flex foot justify-content-between">
+                <div class="col-md-4 mt-3 col-xs-4">
+                    <h4 class="text-center text-white font-weight-bold">A propos</h4>
+                </div>
+                <div class="col-md-4 mt-3 col-xs-4">
+                    <h4 class="text-center text-white font-weight-bold ">Plan du site</h4>
+                </div>
+                <div class="col-md-4 mt-3 col-xs-4">
+                    <h4 class="text-center text-white font-weight-bold">Nous Contacter</h4>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4">
-            <h4 class="font-weight-bolder text-center  ">Plan du site</h4>
-        </div>
-        <div class="col-md-4 ">
-            <h4 class="font-weight-bolder text-center">Nous contacter</h4>
-        </div>
-    </div>
-</footer>
+    </footer>
 
 <script>
     function readURL(input) {

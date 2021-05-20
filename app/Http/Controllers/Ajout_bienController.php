@@ -46,18 +46,18 @@ class Ajout_bienController extends Controller
             'type_biens'=>'required|string|',
             'localisation'=>'required |string|',
             'nbre_piece'=>'required |string|',
-            'toilette'=>'required|integer|max:4',
+            'toilette'=>'|integer|max:4',
             'courant'=>'required|string|',
             'assainissement'=>'required|string|',
             'plafond'=>'required|string|',
             'carreaux'=>'required|string|',
             'meuble'=>'required',
             'prix'=>'required|integer|',
-            'description'=>'required',
+            'description'=>'|max:255',
             'statut'=>'required', 
-            'caution'=>'required|integer|max:12', 
-            'avance'=>'required|integer|max:12', 
-            'prestation'=>'required|integer|max:12', 
+            'caution'=>'|integer|max:12', 
+            'avance'=>'|integer|max:12', 
+            'prestation'=>'|integer|max:12', 
                 
         ]);
                 $product = new Ajout_bien();
@@ -121,7 +121,7 @@ class Ajout_bienController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('edit',compact('products'));
     }
 
     /**
@@ -144,6 +144,12 @@ class Ajout_bienController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // $product->delete();
+        // return back('/dashboard')->with('success', 'Student deleted successfully');
+        
+    
+
+
+
     }
 }

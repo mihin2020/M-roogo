@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('ajout_bien','Ajout_bienController');
+Route::get('/delete/{id}','SuppController@destroy');
 Route::resource('dash', 'ParametreController');
 Route::post('dash_bien', 'Parametre_bienController@store_bien');
 Route::post('ressource', 'Parametre_ressourceController@store_ressource');

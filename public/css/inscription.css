@@ -17,4 +17,104 @@
 }
 
 
-/* formulaire */
+/* bas de page */
+
+.foot {
+    background-color: #274fa6;
+}
+
+.foot_ins {
+    background-color: #274fa6;
+    height: 50px;
+    margin-top: 40px;
+}
+
+@media (max-width:360px) {
+    .img {
+        display: none;
+    }
+    .position_centre {
+        margin-right: 110px;
+    }
+    .d_none {
+        display: none;
+    }
+    .reduction_header {
+        height: 150px;
+    }
+}
+
+@media (max-width:412px) {
+    .img {
+        display: none;
+    }
+    .position_centre {
+        margin-right: 130px;
+    }
+    .d_none {
+        display: none;
+    }
+    .reduction_header {
+        height: 150px;
+    }
+}
+
+@media (max-width:360px) {
+    .img {
+        display: none;
+    }
+    .position_centre {
+        margin-right: 115px;
+    }
+}
+
+@media (max-width:360px) {
+    .img {
+        display: none;
+    }
+    .position_centre {
+        margin-right: 90px;
+    }
+}
+
+@media (max-width:360px) {
+    .img {
+        display: none;
+    }
+    .position_centre {
+        margin-right: 125px;
+    }
+    .small_text {
+        font-size: 2.6em;
+    }
+}
+
+@media (max-width:414px) {
+    .img {
+        display: none;
+    }
+    .position_centre {
+        margin-right: 140px;
+    }
+    .d_none {
+        display: none;
+    }
+    .reduction_header {
+        height: 150px;
+    }
+}
+
+@media (max-width:768px) {
+    .img {
+        display: none;
+    }
+    .position_centre {
+        margin-right: 130px;
+    }
+    .d_none {
+        display: none;
+    }
+    .reduction_header {
+        height: 150px;
+    }
+}
