@@ -29,6 +29,11 @@ Route::get('connexion', 'UserController@userLoginIndex')->name('connexion');
 
 Route::post('login', 'UserController@userPostLogin');
 
+Route::post('/update', 'UserController@Update_account')->name('update');
+Route::get('modifier', 'UserController@Vue');
+
+Route::get('Update_bien','Bien_updateController@Vue');
+
 Route::get('dashboard', 'UserController@dashboard');
 
 Route::get('logout', 'UserController@logout');

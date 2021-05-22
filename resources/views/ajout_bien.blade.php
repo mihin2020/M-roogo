@@ -252,7 +252,7 @@
 
 
                     <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-                    <!-- <div class="file-upload">
+                    <div class="file-upload">
                     <button class="file-upload-btn" type="button" onclick="$('.file-upload-input').trigger( 'click' )">Add Image</button>
 
                     <div class="image-upload-wrap">
@@ -267,7 +267,7 @@
                         <button type="button" onclick="removeUpload()" class="remove-image">Retirer <span class="image-title">Uploaded Image</span></button>
                         </div>
                     </div>
-                    </div> -->
+                    </div>
                     </div>
                     <div class="modal-footer">
                 <button type="submit" class="btn btn-primary rounded-pill">Enregistrer</button>

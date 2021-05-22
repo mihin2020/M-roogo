@@ -58,45 +58,54 @@ class Ajout_bienController extends Controller
             'caution'=>'|integer|max:12', 
             'avance'=>'|integer|max:12', 
             'prestation'=>'|integer|max:12', 
+            'picture'=>'|image|', 
                 
         ]);
-                $product = new Ajout_bien();
-                $product->user_id = $request->input('user_id');
-                $product->type_biens = $request->input('type_biens');  
-                $product->localisation=$request->input('localisation');
-                $product->nbre_piece=$request->input('nbre_piece');
-                $product->toilette=$request->input('toilette');
-                $product->garage=$request->input('garage');
-                $product->courant=$request->input('courant');
-                $product->assainissement=$request->input('assainissement');
-                $product->plafond=$request->input('plafond');
-                $product->carreaux=$request->input('carreaux');
-                $product->meuble=$request->input('meuble');
-                $product->prix=$request->input('prix');
-                $product->description=$request->input('description');
-                $product->statut=$request->input('statut');
-                $product->caution=$request->input('caution');
-                $product->avance=$request->input('avance');
-                $product->prestation=$request->input('prestation');
-                $product->save(); // Finally, save the record.
-                return redirect()->intended('ajout_bien')->with('success', 'Votre bien a été ajouté avec succes');
+        $image = request('picture')->store('uploads','public');
+                // $product = new Ajout_bien();
+                // $product->user_id = $request->input('user_id');
+                // $product->type_biens = $request->input('type_biens');  
+                // $product->localisation=$request->input('localisation');
+                // $product->nbre_piece=$request->input('nbre_piece');
+                // $product->toilette=$request->input('toilette');
+                // $product->garage=$request->input('garage');
+                // $product->courant=$request->input('courant');
+                // $product->assainissement=$request->input('assainissement');
+                // $product->plafond=$request->input('plafond');
+                // $product->carreaux=$request->input('carreaux');
+                // $product->meuble=$request->input('meuble');
+                // $product->prix=$request->input('prix');
+                // $product->description=$request->input('description');
+                // $product->statut=$request->input('statut');
+                // $product->caution=$request->input('caution');
+                // $product->avance=$request->input('avance');
+                // $product->prestation=$request->input('prestation');
+                // $product->save(); // Finally, save the record.
+                // return redirect()->intended('ajout_bien')->with('success', 'Votre bien a été ajouté avec succes');
         
-                // Ajout_bien::create([
-                //     'user_id'=>auth()->user()->id,
-                //     'type_biens'=>request('type_biens'),
-                //     'localisation'=>request('localisation'),
-                //     'nbre_piece'=>request('nbre_piece'),
-                //     'courant'=>request('courant'),
-                //     'assainissement'=>request('assainissement'),
-                //     'plafond'=>request('plafond'),
-                //     'carreaux'=>request('carreaux'),
-                //     'meuble'=>request('meuble'),
-                //     'prix'=>request('prix'),
-                //     'description'=>request('description'),
-                //     'meuble'=>request('meuble'),
-                //     'statut'=>request('statut'),
-                // ]);
-    
+                Ajout_bien::create([
+                    'user_id'=>auth()->user()->id,
+                    'type_biens'=>request('type_biens'),
+                    'localisation'=>request('localisation'),
+                    'nbre_piece'=>request('nbre_piece'),
+                    'toilette'=>request('toilette'),
+                    'garage'=>request('garage'),
+                    'courant'=>request('courant'),
+                    'assainissement'=>request('assainissement'),
+                    'plafond'=>request('plafond'),
+                    'carreaux'=>request('carreaux'),
+                    'meuble'=>request('meuble'),
+                    'prix'=>request('prix'),
+                    'description'=>request('description'),
+                    'statut'=>request('statut'),
+                    'caution'=>request('caution'),
+                    'avance'=>request('avance'),
+                    'prestation'=>request('prestation'),
+                    'avance'=>request('avance'),
+                    'picture'=>request('picture'),
+            
+                ]);
+                return redirect()->intended('ajout_bien')->with('success', 'Votre bien a été ajouté avec succes');
     }
 
     /**

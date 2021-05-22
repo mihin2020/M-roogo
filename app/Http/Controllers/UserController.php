@@ -28,8 +28,8 @@ class UserController extends Controller {
 // --------------------- [ Register user ] ----------------------
     public function userPostRegistration(Request $request) {
 
-            request()->validate(
-                [
+        request()->validate(
+             [
                     'role'=> ['required'],
                     'first_name' => ['required','string'],
                     'last_name'=> ['required','string'],
@@ -37,7 +37,7 @@ class UserController extends Controller {
                     'phone'=> ['required','integer'],
                     'password'=> ['required','min:3','max:6',],
                     'confirm_password'=> ['required','same:password'],     
-                ]);
+            ]);
 
         // $input          =           $request->all();
 
@@ -63,8 +63,6 @@ class UserController extends Controller {
         }
     }
 
-
-
 // -------------------- [ User login view ] -----------------------
     public function userLoginIndex() {
         return view('/connexion');
@@ -81,18 +79,18 @@ class UserController extends Controller {
 
         $userCredentials = $request->only('email', 'password');
         $recuperation = DB::select('select role_id  from users where email=?',[$request->input('email')]);
-        // $recuperation = User::all();
+       
         // check user using auth function
         if (Auth::attempt($userCredentials)&& $recuperation[0]->role_id ==1) {
-            return redirect()->intended('dashboard');
+        return redirect()->intended('dashboard');
 
-        }elseif (Auth::attempt($userCredentials)&& $recuperation[0]->role_id ==2) {
-            return 'locataire';
+    }elseif (Auth::attempt($userCredentials)&& $recuperation[0]->role_id ==2) {
+        return 'locataire';
 
-        }else {
-            return back()->with('error', 'Email ou Mot de passe incorrect');
-        }
+    }else {
+        return back()->with('error', 'Email ou Mot de passe incorrect');
     }
+}
 
 
 // ------------------ [ User Dashboard Section ] ---------------------
@@ -100,21 +98,55 @@ class UserController extends Controller {
 
         // check if user logged in
         if(Auth::check()) {
-            $products=Ajout_bien::all()->where('user_id', '=', Auth::user()->id);
-            
-            // $parametre_biens=Bien::all();
-            // $parametre_ressources=Ressource::all();
-            return view('dashboard',compact('products'));
-        }
-
-        return redirect::to("/connexion")->withError('Oopps! You do not have access');
+        $products=Ajout_bien::all()->where('user_id', '=', Auth::user()->id);
+        return view('dashboard',compact('products'));
     }
+        return redirect::to("/connexion")->withError("Veuillez vous connecter s'il vous plait");
+}
 
 
 // ------------------- [ User logout function ] ----------------------
 public function logout(Request $request ) {
-    $request->session()->flush();
-    Auth::logout();
-    return Redirect('/connexion');
+        $request->session()->flush();
+        Auth::logout();
+        return Redirect('/connexion');
     }
+
+    // ------------------- [ User upadate function ] ----------------------
+
+public function Vue(){
+
+        $parametre_biens=Bien::all();
+        $parametres=Parametre::all();
+        $parametre_ressources=Ressource::all();   
+        return view('modifier',compact('parametre_biens','parametre_bien_ressources','parametres'));
+
+    }
+
+public function Update_account(Request $request)  {
+ 
+    request()->validate(
+        [
+            'role'=> ['required'],
+            'first_name' => ['required','string'],
+            'last_name'=> ['required','string'],
+            'email'=> ['required','email'],
+            'phone'=> ['required','integer'],
+            'password'=> ['required','min:3','max:6',],
+            'confirm_password'=> ['required','same:password'],     
+        ]);
+        $utilisateurs = Auth::user();
+        $utilisateurs->role_id =$request->input('role');
+        $utilisateurs->first_name =$request->input('first_name');
+        $utilisateurs->last_name =$request->input('last_name');
+        $utilisateurs->email =$request->input('email');
+        $utilisateurs->phone =$request->input('phone');
+        $utilisateurs->password = Hash::make(request('password')); 
+        $utilisateurs->save();
+        return redirect('/connexion')->with('success','Modification effectuée avec succes,Connectez-vous avec vos nouveau identifiants');
+    
+
+    }  
 }
+
+

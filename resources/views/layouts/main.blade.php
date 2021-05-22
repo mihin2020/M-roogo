@@ -66,14 +66,14 @@
                 <div class="col-12">
                     <nav class="site-navigation text-right ml-auto " role="navigation">
                         <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
-                            <li><a href="#" class="nav-link font-weight-bolder mr-lg-2"><span class="blue">Accueil</span></a>
+                            <li><a href="{{asset('accueil')}}" class="nav-link font-weight-bolder mr-lg-2"><span class="blue">Accueil</span></a>
                             </li>
 
                             <li class="has-children ">
-                                <a href="#" class="nav-link blue font-weight-bolder mr-lg-2"><span class="blue">Mes biens</span></a>
+                                <a href="{{asset('dashboard')}}" class="nav-link blue font-weight-bolder mr-lg-2"><span class="blue">Mes biens</span></a>
                                 <ul class="dropdown arrow-top">
                                     <li>
-                                        <a href="ajout_bien"  class="nav-link font-weight-bolder">
+                                        <a href="{{asset('ajout_bien')}}"  class="nav-link font-weight-bolder">
                                         <span class="blue">Ajouter</span>
                                         </a>
                                     </li>
@@ -91,6 +91,13 @@
                                 <ul class="dropdown arrow-top">
                                     <li>
                                         <a href="{{ url('logout') }}" class="nav-link font-weight-bolder"><span class="blue">Deconnexion</span></a>
+                                       
+                                            <li>
+                                                <a href="{{asset('modifier')}}"  class="nav-link font-weight-bolder">
+                                                <span class="blue">Modifier Compte</span>
+                                                </a>
+                                            </li>
+                                       
                                     </li>
                                 </ul>
                             </li>

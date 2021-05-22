@@ -12,8 +12,5 @@ class SuppController extends Controller
     return redirect('/dashboard')->with('success', 'Votre bien a été retirer avec succes');;
    }
 
-   public function edit($id){
-     
-      return view('edit');
-   }
+
 }

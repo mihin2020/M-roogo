@@ -80,10 +80,13 @@
                                     <div class="col-md-9 col-xs-9 mt-5">
                                         <h6> <span  class='font-weight-bolder'> Caracteristiques </span> :{{$product->toilette}} toilette, {{$product->plafond}}, {{$product->carreaux}}</h6>
                                     </div>
+                                    <div class="col-md-12 col-xs-12 mt-5">
+                                         <img src="{{asset('storage').'/'.$product->picture}}" alt="">
+                                    </div>
                                 </div>
                                 <div class="modal-footer row">
                                      
-                                   <a href="edit/{{$product->id}}"><button type="button" class="btn btn-success" >modifier</button></a> 
+                                   <a href="{{asset('Update_bien')}}"><button type="button" class="btn btn-success" >modifier</button></a> 
                                    <a href="delete/{{$product->id}}"><button type="button" class="btn btn-danger">Retirer</button></a> 
                                 </div>
                                 </div>

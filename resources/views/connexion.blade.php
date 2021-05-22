@@ -35,7 +35,7 @@
 
         <div class="row top">
             <div class="col-md-6 col-xs-12 mt-4 img">
-                <img src="images/img_ins.png" height="500px" alt="">
+                <img src="../images/img_ins.png" height="500px" alt="">
             </div>
             <div class="col-md-6  col-xs-12 ">
                 <div class="mt-4">
@@ -44,13 +44,28 @@
                         <img src="../images/avatar.png" width="100px" height="100px" alt="">
                     </div>
                 </div>
+
+                <!-- success message when there is an updating -->
+                      @if ($message = Session::get('success'))
+                            <div class="alert alert-success alert-block">
+                                <button type="button" class="close ml-1" data-dismiss="alert">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                    </svg>
+                                </button>
+                                    <strong>{{ $message }}</strong>
+                            </div>
+                        @endif
+
+                <!-- wrong message -->
                         @if ($message = Session::get('error'))
                             <div class="alert alert-danger alert-block">
                             <button type="button" class="close ml-2" data-dismiss="alert">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
-                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
-                                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
-                                </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+                                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                                    </svg>
                             </button>	   
                                 <strong>{{ $message }}</strong>
                             </div>

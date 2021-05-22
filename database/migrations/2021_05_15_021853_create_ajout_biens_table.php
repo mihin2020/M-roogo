@@ -31,6 +31,7 @@ class CreateAjoutBiensTable extends Migration
             $table->integer('caution')->nullable();
             $table->integer('avance')->nullable();
             $table->integer('prestation')->nullable();
+            $table->string('picture');
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
 

@@ -95,18 +95,18 @@
                         <div class="col-md-6 ">
                             <label for="validationDefault01" class="font-weight-bolder blue">Prénom</label>
                             <input type="text" class="form-control rounded-pill" id="validationDefault01" value="" name="last_name">
-                            {!! $errors->first('first_name', '<small class="text-danger">:message</small>') !!}
+                            {!! $errors->first('last_name', '<small class="text-danger">:message</small>') !!}
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputEmail" class="font-weight-bolder blue">Email</label>
                         <input type="Email" class="form-control rounded-pill" name="email" id="inputEmail">
-                        {!! $errors->first('first_name', '<small class="text-danger">:message</small>') !!}
+                        {!! $errors->first('email_name', '<small class="text-danger">:message</small>') !!}
                     </div>
                     <div class="form-group">
                         <label for="inputNumber" class="font-weight-bolder blue">Numéro de Téléphone</label>
                         <input type="number" name="phone" class="form-control rounded-pill">
-                        {!! $errors->first('first_name', '<small class="text-danger">:message</small>') !!}
+                        {!! $errors->first('phone_name', '<small class="text-danger">:message</small>') !!}
                     </div>
                     <div class="form-group ">
                         <label for="inputPassword4" class="font-weight-bolder blue">Mot de passe</label>
