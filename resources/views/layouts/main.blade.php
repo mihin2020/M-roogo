@@ -46,8 +46,9 @@
                         <span class="mx-md-2 d-inline-block"></span>
                         <a href="#" class="text-white font-weight-bolder"><span class="mr-2  icon-linkedin"></span> <span class="d-none d-md-inline-block">Linkedin</span></a>
                         <span class="mx-md-2 d-inline-block"></span>
-                        <a href="https://api.whatsapp.com/send?phone=22675672644" class="text-white font-weight-bolder"><span class="mr-2  icon-whatsapp"></span> <span class="d-none d-md-inline-block">WhatsApp</span></a>
+                        <a href="https://api.whatsapp.com/send?phone=22675672644" class="text-white font-weight-bolder" target="_blank"><span class="mr-2  icon-whatsapp"></span> <span class="d-none d-md-inline-block">WhatsApp</span></a>
                     </div>
+
 
                 </div>
 
@@ -56,17 +57,17 @@
         </div>
     </div>
 
-    <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
+    <header class="site-navbar js-sticky-header site-navbar-target shadow" role="banner">
 
         <div class="container">
             <div class="row align-items-center position-relative">
                 <div class="site-logo">
-                    <a href="index.html" class="text-black"><img src="images/logo2.png" width="125px" height="75px" alt=""></a>
+                    <a href="{{asset('accueil')}}" class="text-black"><img src="images/logo2.png" width="125px" height="75px" alt=""></a>
                 </div>
                 <div class="col-12">
                     <nav class="site-navigation text-right ml-auto " role="navigation">
                         <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
-                            <li><a href="{{asset('accueil')}}" class="nav-link font-weight-bolder mr-lg-2"><span class="blue">Accueil</span></a>
+                            <li><a href="{{asset('dashboard')}}" class="nav-link font-weight-bolder mr-lg-2"><span class="blue">Accueil</span></a>
                             </li>
 
                             <li class="has-children ">
@@ -81,10 +82,10 @@
                             </li>
 
                             <li class="">
-                                <a href="#" class="nav-link blue font-weight-bolder mr-lg-2"><span class="blue">Mes locataires</span></a>
+                                <a href="{{asset('mes_locataires')}}" class="nav-link blue font-weight-bolder mr-lg-2"><span class="blue">Mes locataires</span></a>
                             </li>
 
-                            <li><a href="#" class="nav-link font-weight-bolder mr-lg-2"><span class="blue">Mes locations</span></a>
+                            <li><a href="{{asset('mes_locations')}}" class="nav-link font-weight-bolder mr-lg-2"><span class="blue">Mes locations</span></a>
                             </li>
                             <li class="has-children ">
                                 <a href="#" class="nav-link font-weight-bolder"><span class="mr-2 blue icon-account_circle "></span><span class="blue">{{ucfirst(Auth()->user()->first_name)}}</span></a>

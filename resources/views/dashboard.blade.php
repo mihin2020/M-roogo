@@ -28,13 +28,13 @@
                 @foreach($products as $product)
                     
                 <div class="col-md-6 col-xs-12 mt-4">
-                <div class="card ">
+                <div class="card shadow ">
                         <div class="card-header d-flex justify-content-between">
                                 <h5 class="font-weight-bold blue">{{$product->type_biens}} à {{$product->localisation}} </h5>
                                 <a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#view_{{$product->id}}" data-whatever="@getbootstrap">Voir details</a>
                         </div>
 
-<!-- modal -->
+                     <!-- modal -->
                             <div class="modal fade" id="view_{{$product->id}}" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                            
@@ -51,9 +51,9 @@
                                     <div class="col-md-4 col-xs-4">
                                         <h6> <span class=' font-weight-bolder'>localisation </span> : {{$product->localisation}}</h6>
                                     </div>
-                                    <div class="col-md-4 col-xs-4"> 
+                                    <!-- <div class="col-md-4 col-xs-4"> 
                                         <h6 > <span class='font-weight-bolder'>Taille </span> :</h6>
-                                    </div>
+                                    </div> -->
 
                                     <div class="col-md-5 col-xs-5 mt-5 ">
                                         <h6 > <span class='font-weight-bolder'>Nombre de pièce</span> : {{$product->nbre_piece}}</h6>
@@ -80,14 +80,17 @@
                                     <div class="col-md-9 col-xs-9 mt-5">
                                         <h6> <span  class='font-weight-bolder'> Caracteristiques </span> :{{$product->toilette}} toilette, {{$product->plafond}}, {{$product->carreaux}}</h6>
                                     </div>
-                                    <div class="col-md-12 col-xs-12 mt-5">
-                                         <img src="{{asset('storage').'/'.$product->picture}}" alt="">
+                                    <div class="col-md-12 col-xs-12 mt-5 d-flex justify-content-center">
+                                    
+                                         <img src="{{asset('storage').'/'.$product->picture}}" alt="" width="175px" height="175px">
+                                   
                                     </div>
                                 </div>
+                                
                                 <div class="modal-footer row">
                                      
                                    <a href="{{asset('Update_bien')}}"><button type="button" class="btn btn-success" >modifier</button></a> 
-                                   <a href="delete/{{$product->id}}"><button type="button" class="btn btn-danger">Retirer</button></a> 
+                                   <a href="delete/{{$product->id}}"><button type="button" class="btn btn-danger col-12  ">Retirer</button></a> 
                                 </div>
                                 </div>
                             </div>
@@ -97,7 +100,9 @@
                                 <p class="card-text col-md-10">{{$product->description}}</p>
                                     <p class="offset-2"></p>
                                     <p class="col-md-6  font-weight-bold">Loyer mensuel : {{$product->prix}} Fcfa</p>
-                                <p class="offset-6"></p>
+                                <div class="col-md-6 d-flex justify-content-end">
+                                    <a href="{{asset('mes_locations')}}"><button type="button" class="btn   btn-outline-primary">Creer une location</button></a> 
+                                </div>
                             </div>
                      </div>
                  </div>

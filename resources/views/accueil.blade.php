@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
+    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -108,7 +108,9 @@
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <div class="filter">
-                    <img src="images/slide1.jpg" class="d-block w-100 " height="500px" alt="..."></div>
+                @foreach($products as $key=>$product)
+                    <img src="{{asset('storage').'/'.$product->picture}}" class="d-block w-100 " height="350px" alt="..."></div>
+                    @endforeach
                 <div class="carousel-caption d-none d-md-block">
                     <h2 class="display-3 font-weight-bold mb-5">Rechercher ou louer votre maison vous même?</h2>
                     <div>
@@ -118,10 +120,10 @@
             </div>
             <div class="carousel-item">
                 <div class="filter">
-                    <img src="images/slide 2.png" class="d-block w-100" height="500px" alt="...">
+                    <img src="{{asset('images/slide 2.png')}}" class="d-block w-100" height="350px" alt="...">
                 </div>
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Second slide label</h5>
+                    <h5  class="display-3 font-weight-bold mb-5">Votre satisfaction, notre Priorité</h5>
                     <div>
                         <button type="button" class="btn btn-primary rounded-pill mb-3"> <a href="{{route('inscription')}}"><span class="text-white">C'est parti</span></a> </button>
                     </div>
@@ -129,7 +131,7 @@
             </div>
             <div class="carousel-item">
                 <div class="filter">
-                    <img src="images/slide 3.png" class="d-block w-100" height="500px" alt="...">
+                    <img src="{{asset('images/slide 3.png')}}" class="d-block w-100" height="350px" alt="...">
                 </div>
                 <div class="carousel-caption d-none d-md-block">
                     <h2 class="display-3 font-weight-bold mb-5 ">M'roogo , vous rendre la vie plus facile</h2>

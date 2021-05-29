@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/inscription.css">
-    <link rel="stylesheet" href="css/bootstrap/bootstrap-icons-1.4.1/fonts/bootstrap-icons.woff">
-    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/inscription.css')}}">
+    <link rel="stylesheet" href="{{asset('css/bootstrap/bootstrap-icons-1.4.1/fonts/bootstrap-icons.woff')}}">
+    <link rel="stylesheet" href="{{asset('css/form.css')}}">
     <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
     <title>Inscription</title>
 </head>
@@ -23,10 +23,10 @@
                       </svg></a>
                 </div>
                 <div class="col-md-3 d-flex justify-content-end mt-1 col-xs-3">
-                    <a href="" class="position_centre"><img src="images/logo2.png" width="110px" height="65px" alt=""></a>
+                    <a href="{{asset('accueil')}}" class="position_centre"><img src="{{asset('images/logo2.png')}}" width="110px" height="65px" alt=""></a>
                 </div>
                 <div class="col-md-6 col-xs-6 d-flex justify-content-start bordure ">
-                    <h4 class="font-weight-bolder d-none blue align mt-4">Inscription</h4>
+                    <h4 class="font-weight-bolder  blue align mt-4">Inscription</h4>
                 </div>
             </div>
         </div>
@@ -35,7 +35,7 @@
 
         <div class="row top">
             <div class="col-md-6 col-xs-12 mt-4 img">
-                <img src="images/img_ins.png"  height="550px" alt="">
+                <img src="{{asset('images/img_ins.png')}}"  height="550px" alt="">
             </div>
             <div class="col-md-6  col-xs-12 ">
                 <div>
@@ -89,23 +89,23 @@
                     <div class="form-row mt-4">
                         <div class="col-md-6 ">
                             <label for="validationDefault01" class="font-weight-bolder blue ">Nom</label>
-                            <input type="text" class="form-control rounded-pill" id="validationDefault01" value="" name="first_name" >
+                            <input type="text" class="form-control rounded-pill" id="validationDefault01" value="" placeholder="Entrer votre nom" name="first_name" >
                             {!! $errors->first('first_name', '<small class="text-danger">:message</small>') !!}
                         </div>
                         <div class="col-md-6 ">
                             <label for="validationDefault01" class="font-weight-bolder blue">Prénom</label>
-                            <input type="text" class="form-control rounded-pill" id="validationDefault01" value="" name="last_name">
+                            <input type="text" class="form-control rounded-pill" id="validationDefault01" value="" placeholder="Entrer votre prenom" name="last_name">
                             {!! $errors->first('last_name', '<small class="text-danger">:message</small>') !!}
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inputEmail" class="font-weight-bolder blue">Email</label>
-                        <input type="Email" class="form-control rounded-pill" name="email" id="inputEmail">
+                        <input type="Email" class="form-control rounded-pill" name="email" placeholder="Entrer votre email" id="inputEmail">
                         {!! $errors->first('email_name', '<small class="text-danger">:message</small>') !!}
                     </div>
                     <div class="form-group">
                         <label for="inputNumber" class="font-weight-bolder blue">Numéro de Téléphone</label>
-                        <input type="number" name="phone" class="form-control rounded-pill">
+                        <input type="number" name="phone" placeholder="Entrer votre numero" class="form-control rounded-pill">
                         {!! $errors->first('phone_name', '<small class="text-danger">:message</small>') !!}
                     </div>
                     <div class="form-group ">
@@ -125,7 +125,7 @@
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary rounded-pill justify-content-center font-weight-bolder ">S'inscrire</button>
                             <div class='mt-2'>
-                                <h6 class=''>Avez vous un compte? <a href="{{asset('connexion')}}">Connectez-vous</a></h6> 
+                                <h6 class='font-weight-bolder'>Avez vous un compte? <a href="{{asset('connexion')}}">Connectez-vous</a></h6> 
                             </div>
                     </div>
                 </form>

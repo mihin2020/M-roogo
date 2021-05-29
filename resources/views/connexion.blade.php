@@ -23,10 +23,10 @@
                       </svg></a>
                 </div>
                 <div class="col-md-3 d-flex justify-content-end mt-1 col-xs-3">
-                    <a href=""  class="position_centre"><img src="images/logo2.png" width="110px" height="65px" alt=""></a>
+                    <a href="{{asset('accueil')}}"  class="position_centre"><img src="{{asset('images/logo2.png')}}" width="110px" height="65px" alt=""></a>
                 </div>
                 <div class="col-md-6 col-xs-6 d-flex justify-content-start bordure ">
-                    <h4 class="font-weight-bolder  d-none blue align mt-4">Connexion</h4>
+                    <h4 class="font-weight-bolder  di-none blue align mt-4">Connexion</h4>
                 </div>
             </div>
         </div>
@@ -70,24 +70,28 @@
                                 <strong>{{ $message }}</strong>
                             </div>
                         @endif
+
                 <form method="post" action="{{ url('login') }}">
                 @csrf
                     <div class="form-group">
                         <label for="inputEmail" class="font-weight-bolder mt-2 blue">Email</label>
-                        <input type="Email" class="form-control rounded-pill" value="{{old('email')}}" name="email" id="inputEmail">
+                        <input type="Email" class="form-control rounded-pill" value="{{old('email')}}" placeholder="Entrer votre email" name="email" id="inputEmail">
                             @if($errors->has('email'))
                                   <p class="font-weight-bold text-danger">{{$errors->first('email') }}</p> 
                             @endif
                     </div>
                     <div class="form-group mt-5">
                         <label for="inputPassword4" class="font-weight-bolder blue">Mot de passe</label>
-                        <input type="password"  class="form-control rounded-pill"  name="password" id="inputPassword4">
+                        <input type="password"  class="form-control rounded-pill"  name="password" placeholder="saisissez votre mot de passe" id="inputPassword4">
                             @if($errors->has('password'))
                                    <p class="font-weight-bold text-danger">{{$errors->first('password') }}</p> 
                             @endif
                     </div>
                     <div class="text-center mt-5">
                         <button type="submit" class="btn btn-primary rounded-pill justify-content-center font-weight-bolder ">Se connecter</button>
+                    </div>
+                    <div class='text-center'>
+                    <p class='font-weight-bold mt-2'>Vous n'avez pas de compte? <a href="{{route('inscription')}}"> Inscrivez-vous</a></p> 
                     </div>
                 </form>
             </div>

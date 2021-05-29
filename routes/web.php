@@ -14,8 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::resource('mes_locations','LocationController');
+Route::resource('mes_locataires','LocatairesController');
+
+
 Route::resource('ajout_bien','Ajout_bienController');
 Route::get('/delete/{id}','SuppController@destroy');
+Route::get('/delete/{id}','SuppController@destroy_locataire');
+Route::get('/delete/{id}','SuppController@destroy_location');
 Route::resource('dash', 'ParametreController');
 Route::post('dash_bien', 'Parametre_bienController@store_bien');
 Route::post('ressource', 'Parametre_ressourceController@store_ressource');

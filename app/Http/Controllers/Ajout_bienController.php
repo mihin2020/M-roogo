@@ -16,10 +16,10 @@ class Ajout_bienController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   $products=Ajout_bien::all();
         $parametre_biens=Bien::all();
         $parametre_ressources=Ressource::all();
-        return view('ajout_bien',compact('parametre_biens','parametre_ressources'));
+        return view('ajout_bien',compact('parametre_biens','parametre_ressources','ajout_biens'));
     }
 
     /**
@@ -62,26 +62,7 @@ class Ajout_bienController extends Controller
                 
         ]);
         $image = request('picture')->store('uploads','public');
-                // $product = new Ajout_bien();
-                // $product->user_id = $request->input('user_id');
-                // $product->type_biens = $request->input('type_biens');  
-                // $product->localisation=$request->input('localisation');
-                // $product->nbre_piece=$request->input('nbre_piece');
-                // $product->toilette=$request->input('toilette');
-                // $product->garage=$request->input('garage');
-                // $product->courant=$request->input('courant');
-                // $product->assainissement=$request->input('assainissement');
-                // $product->plafond=$request->input('plafond');
-                // $product->carreaux=$request->input('carreaux');
-                // $product->meuble=$request->input('meuble');
-                // $product->prix=$request->input('prix');
-                // $product->description=$request->input('description');
-                // $product->statut=$request->input('statut');
-                // $product->caution=$request->input('caution');
-                // $product->avance=$request->input('avance');
-                // $product->prestation=$request->input('prestation');
-                // $product->save(); // Finally, save the record.
-                // return redirect()->intended('ajout_bien')->with('success', 'Votre bien a été ajouté avec succes');
+               
         
                 Ajout_bien::create([
                     'user_id'=>auth()->user()->id,
@@ -102,7 +83,7 @@ class Ajout_bienController extends Controller
                     'avance'=>request('avance'),
                     'prestation'=>request('prestation'),
                     'avance'=>request('avance'),
-                    'picture'=>request('picture'),
+                    'picture'=>$image,
             
                 ]);
                 return redirect()->intended('ajout_bien')->with('success', 'Votre bien a été ajouté avec succes');
