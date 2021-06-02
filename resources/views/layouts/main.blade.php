@@ -87,6 +87,10 @@
 
                             <li><a href="{{asset('mes_locations')}}" class="nav-link font-weight-bolder mr-lg-2"><span class="blue">Mes locations</span></a>
                             </li>
+
+                            <li><a href="" class="nav-link font-weight-bolder mr-lg-2"><span class="blue">Mes paiements</span></a>
+                            </li>
+
                             <li class="has-children ">
                                 <a href="#" class="nav-link font-weight-bolder"><span class="mr-2 blue icon-account_circle "></span><span class="blue">{{ucfirst(Auth()->user()->first_name)}}</span></a>
                                 <ul class="dropdown arrow-top">
@@ -175,6 +179,7 @@
                     $('.image-upload-wrap').removeClass('image-dropping');
             });
         </script>
+        <!-- <script src="js/app.js"></script> -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>

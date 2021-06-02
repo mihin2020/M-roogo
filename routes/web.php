@@ -11,6 +11,8 @@
 |
 */
 
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -46,6 +48,9 @@ Route::get('dashboard', 'UserController@dashboard');
 
 Route::get('logout', 'UserController@logout');
  
+Route::get('bail','BailController@show_bail');
+Route::resource('paiement','PaiementController');
+Route::get('create','CreateController@create');
 
 
 

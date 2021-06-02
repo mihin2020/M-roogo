@@ -18,12 +18,14 @@
 
     <!-- Style -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/zoom.css">
+    <link rel="stylesheet" href="css/inscription.css">
 
     <link rel="stylesheet" href="css/bootstrap/bootstrap-icons-1.4.1/fonts/bootstrap-icons.woff">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
 
-    <title>Website Menu #4</title>
+    <title>Accueil</title>
 </head>
 
 <body>
@@ -108,9 +110,9 @@
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <div class="filter">
-                @foreach($products as $key=>$product)
-                    <img src="{{asset('storage').'/'.$product->picture}}" class="d-block w-100 " height="350px" alt="..."></div>
-                    @endforeach
+               
+                    <img src="images/slide1.jpg" class="d-block w-100 " height="350px" alt="..."></div>
+                   
                 <div class="carousel-caption d-none d-md-block">
                     <h2 class="display-3 font-weight-bold mb-5">Rechercher ou louer votre maison vous même?</h2>
                     <div>
@@ -203,39 +205,98 @@
 
         <div class="container ">
             <div class="row">
-                <div class="col-md-4 col-xs-12">
-                    <div class="card shadow-lg" style="width: 21rem;">
-                        <img class="card-img-top" src="images/téléchargement (9).jpg" height="275px" alt="Card image cap">
+            @foreach($products as $product)
+                <div class="col-md-4 my-3 col-xs-12">
+                    <div class="card shadow-lg" style="width: 18rem;">
+                    <!--  -->   <img class="card-img-top" src="{{asset('storage').'/'.$product->picture}}" id="myImg" height="250px" alt="Card image cap">
+                        <!-- The Modal -->
+                            <!-- <div id="modal1" class="modal">
+                            <img class="modal-content" id="img01">
+                            <div id="caption"></div>
+                            </div> -->
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <h5 class="card-title font-weight-bold blue">{{$product->type_biens}}  {{$product->statut}}  </h5>
+                                    <p>Prix :{{$product->prix}}/mois</p>
+                                    <p>Quartier:{{$product->localisation}}</p>
+
+                                @if ( strlen($product) >= 100)
+
+                                    <p>{{ substr($product->description, 0, 100)."..." }} </p>
+
+                                @else
+                                    {{ $uneRes->commDep }}
+                                @endif
+                                <div class="row">
+                                    <div class="col-md-6 col-xs-6 ">
+                                        <button type="button"data-toggle="modal" data-target="#view_" data-whatever="@getbootstrap" class="btn btn-sm btn-outline-primary d-flex justify-content-start ">Contactez</button>
+                                    </div>
+                                    <div class="col-md-6 col-xs-6 mt-2 ">
+                                         <p class="d-flex justify-content-end date">publié le {{date('d-m-Y', strtotime($product->created_at))}}</p>
+                                    </div>
+                                     <!-- modal -->
+                            <div class="modal fade" id="view_" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                           
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body row">
+                                    
+                                </div>
+                                
+                                
+                                </div>
+                            </div>
+                            </div>
+                            <!-- fin -->
+                                </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4 col-xs-12">
-                    <div class="card shadow-lg" style="width: 21rem;">
-                        <img class="card-img-top" src="images/téléchargement (9).jpg" height="275px" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 col-xs-12">
-                    <div class="card shadow-lg" style="width: 21rem;">
-                        <img class="card-img-top" src="images/téléchargement (9).jpg" height="275px" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                </div>  
+            @endforeach          
         </div>
 
+
+        <!-- <script>
+            $('#exampleModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+                var recipient = button.data('whatever') // Extract info from data-* attributes
+                // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+                // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+                var modal = $(this)
+            modal.find('.modal-title').text('New message to ' + recipient)
+            modal.find('.modal-body input').val(recipient)
+            })
+        </script> -->
+        <!-- <script>
+            // Get the modal
+            var modal = document.getElementById('modal1');
+            
+            // Get the image and insert it inside the modal - use its "alt" text as a caption
+            var img = document.getElementById('myImg');
+            var modalImg = document.getElementById("img01");
+            var captionText = document.getElementById("caption");
+            img.onclick = function(){
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                modalImg.alt = this.alt;
+                captionText.innerHTML = this.alt;
+            }
+ 
+            // When the user clicks on <span> (x), close the modal
+            modal.onclick = function() {
+                img01.className += " out";
+                setTimeout(function() {
+                modal.style.display = "none";
+                img01.className = "modal-content";
+                }, 400);
+                
+            }    
+                
+        </script> -->
         <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/popper.min.js"></script>
         <script src="js/bootstrap.min.js"></script>

@@ -25,7 +25,7 @@
                 <div class="col-md-12 col-xs-12">
                     <h1 class="font-weight-bolder blue text-center mb-2">Mes biens</h1>
                 </div>
-                @foreach($products as $product)
+                @forelse($products as $product)
                     
                 <div class="col-md-6 col-xs-12 mt-4">
                 <div class="card shadow ">
@@ -106,7 +106,16 @@
                             </div>
                      </div>
                  </div>
-                 @endforeach
+                 @empty
+                     <div class="alert alert-warning col-md-12 col-xs-12" role="alert">
+                         <p class='font-weight-bolder text-center '>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
+                               <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                            </svg>
+                         Aucun bien disponible
+                         </p>
+                     </div>
+                 @endforelse
             </div>
         </div>
 @endsection

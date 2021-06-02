@@ -16,8 +16,8 @@ class CreateLocationsTable extends Migration
         Schema::create('locations', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->string('type_bien');
-            $table->unsignedBigInteger('locataire');
+            $table->unsignedBigInteger('ajoutbien_id');
+            $table->unsignedBigInteger('locataire_id');
             $table->string('type_bail');
             $table->integer('loyer');
             $table->date('date_bail');
@@ -26,6 +26,16 @@ class CreateLocationsTable extends Migration
             $table->foreign('user_id')
             ->references('id')
             ->on('users')
+            ->onDelete('cascade');
+
+            $table->foreign('ajoutbien_id')
+            ->references('id')
+            ->on('ajout_biens')
+            ->onDelete('cascade');
+
+            $table->foreign('locataire_id')
+            ->references('id')
+            ->on('locataires')
             ->onDelete('cascade');
 
             $table->timestamps();

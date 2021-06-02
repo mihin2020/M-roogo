@@ -101,8 +101,8 @@
 
                                     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                                        <div class="card-body">
-                                             <ul class='font-weight-bold text-secondary row'>
-                                             @foreach($locataires as $locataire)
+                                       @forelse($locataires as $locataire)
+                                             <ul class='font-weight-bold text-secondary row'>                                  
                                                 <li class='col-md-10 col-xs-10'>{{$locataire->nom}} {{$locataire->prenom}}</li>
                                                 <div class='col-md-2 col-xs-2'>
                                                    <a href="delete/{{$locataire->id}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
@@ -110,8 +110,17 @@
                                                       </svg>
                                                    </a>
                                                 </div>
-                                             @endforeach
                                              </ul>
+                                             @empty
+                                             <div class="alert alert-warning" role="alert">
+                                             <p class='font-weight-bolder text-center '>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle-fill " viewBox="0 0 16 16">
+                                                   <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                                                </svg>
+                                             Aucun locataire enregistré
+                                             </p>
+                                              </div>
+                                             @endforelse
                                        </div>
                                      </div>
                                  </div>

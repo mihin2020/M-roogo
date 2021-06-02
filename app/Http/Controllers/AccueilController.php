@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Ajout_bien;
 use Illuminate\Http\Request;
 
 class AccueilController extends Controller
@@ -13,8 +14,8 @@ class AccueilController extends Controller
      */
     public function index()
     {
-        
-        return view('/accueil');
+        $products = Ajout_bien::all();
+        return view('/accueil',compact('products'));
     }
 
     /**

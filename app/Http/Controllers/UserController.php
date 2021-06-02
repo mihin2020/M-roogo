@@ -59,7 +59,7 @@ class UserController extends Controller {
 
         // else return with error message
         else {
-            return back()->with('error', 'Whoops! some error encountered. Please try again.');
+            abort(404);
         }
     }
 

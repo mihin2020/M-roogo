@@ -9,8 +9,12 @@ class Ajout_bien extends Model
     protected $fillable = [
        'type_biens','localisation','nbre_piece','toilette','garage','courant','assainissement','plafond','carreaux','meuble','prix','description','statut','caution','avance','prestation', 'user_id','picture'
     ];
-    public function locations(){
+    public function location(){
 
-        return $this->hasMany(locations::class);
+        return $this->hasOne(locations::class);
+    }
+    public function locataire(){
+
+        return $this->belongsTo(locataires::class);
     }
 }
