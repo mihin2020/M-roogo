@@ -31,7 +31,7 @@
                 <div class="card shadow ">
                         <div class="card-header d-flex justify-content-between">
                                 <h5 class="font-weight-bold blue">{{$product->type_biens}} à {{$product->localisation}} </h5>
-                                <a type="button" href="" class="btn btn-primary" data-toggle="modal" data-target="#view_{{$product->id}}" data-whatever="@getbootstrap">Voir details</a>
+                                <a href="" class="btn btn-primary" data-toggle="modal" data-target="#view_{{$product->id}}" data-whatever="@getbootstrap">Voir details</a>
                         </div>
 
                      <!-- modal -->

@@ -17,4 +17,8 @@ class Ajout_bien extends Model
 
         return $this->belongsTo(locataires::class);
     }
+    public function user(){
+
+        return $this->belongsto(User::class,'user_id');
+    }
 }
