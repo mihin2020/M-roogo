@@ -91,7 +91,7 @@
                         <button type="submit" class="btn btn-primary rounded-pill justify-content-center font-weight-bolder ">Se connecter</button>
                     </div>
                     <div class='text-center'>
-                    <p class='font-weight-bold mt-2'>Vous n'avez pas de compte? <a href="{{route('inscription')}}"> Inscrivez-vous</a></p> 
+                    <p class='font-weight-bold mt-2'>Vous n'avez pas de compte? <a href="{{asset('inscription')}}"> Inscrivez-vous</a></p> 
                     </div>
                 </form>
             </div>
