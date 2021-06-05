@@ -55,7 +55,11 @@
 
                            <div class="col-md-6 col-xs-6 mt-4">
                               <label for="validationDefault01" class="font-weight-bolder blue ">Loyer</label>
-                              <input type="number" class="form-control rounded-pill" id="validationDefault01" value="" name="loyer" >
+                              <select class="form-control rounded-pill"  name="loyer" id="exampleFormControlSelect1">
+                      @foreach($products as $product)
+                              <option  class='font-weight-bolder' value="{{$product->prix}}">{{$product->prix}} FCFA</option>
+                      @endforeach
+                          </select>
                               {!! $errors->first('loyer', '<small class="text-danger">:message</small>') !!}
                            </div>   
 

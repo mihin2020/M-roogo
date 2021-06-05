@@ -98,7 +98,7 @@ class UserController extends Controller {
 
         // check if user logged in
         if(Auth::check()) {
-        $products=Ajout_bien::all()->where('user_id', '=', Auth::user()->id);
+        $products=Ajout_bien::where('user_id', Auth::user()->id)->paginate(4);
         return view('dashboard',compact('products'));
     }
         return redirect::to("/connexion")->withError("Veuillez vous connecter s'il vous plait");

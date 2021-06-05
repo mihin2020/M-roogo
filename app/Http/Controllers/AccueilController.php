@@ -18,7 +18,7 @@ class AccueilController extends Controller
     public function index()
     {
         $utilisateurs = User::all();
-        $products = Ajout_bien::all();
+        $products = Ajout_bien::paginate(3);
         return view('/accueil',compact('products','utilisateurs'));
     }
 
@@ -40,6 +40,7 @@ class AccueilController extends Controller
      */
     public function store(Request $request)
     {
+    
         $this->validate($request,[
             'name'=> ['required'],
             'numero'=> ['required','integer'],
@@ -48,11 +49,12 @@ class AccueilController extends Controller
 
             ]);
             $data = array(
-                'name' => $request->name,
-                'numero' => $request->numero,
-                'email' =>$request->email,
-                'message' => $request->message,
+            'name' => $request->name,
+            'numero' => $request->numero,
+            'email' =>$request->email,
+            'message' => $request->message,
             );
+            
             Mail::to('mihin.aime@gmail.com')
                   ->send(new Contact($data));
             return back()->with('success','Votre demande à été envoyée avec success');      

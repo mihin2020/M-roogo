@@ -19,7 +19,7 @@ class CreateLocatairesTable extends Migration
             $table->string('nom');
             $table->string('prenom');
             $table->string('email')->unique();
-            $table->integer('numero');
+            $table->integer('numero')->unique();
             $table->date('date');
             $table->string('lieu');
             $table->string('nationalite');

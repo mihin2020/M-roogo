@@ -29,49 +29,49 @@
                               <input type="hidden" class="form-control rounded-pill" id="validationDefault01" value="" name="user_id" >
                                     <div class="col-md-6 col-xs-6 mt-4">
                                        <label for="validationDefault01" class="font-weight-bolder blue ">Nom</label>
-                                       <input type="text" class="form-control rounded-pill" id="validationDefault01" value="" name="nom" >
+                                       <input type="text" class="form-control rounded-pill" id="validationDefault01" value="" placeholder="Saisir votre Nom" name="nom" >
                                        {!! $errors->first('nom', '<small class="text-danger">:message</small>') !!}
                                     </div>  
 
                                     <div class="col-md-6 col-xs-6 mt-4">
                                        <label for="validationDefault01" class="font-weight-bolder blue ">Prénom</label>
-                                       <input type="text" class="form-control rounded-pill" id="validationDefault01" value="" name="prenom" >
+                                       <input type="text" class="form-control rounded-pill" id="validationDefault01" value=""  placeholder="Saisir votre Prénom" name="prenom" >
                                        {!! $errors->first('prenom', '<small class="text-danger">:message</small>') !!}
                                     </div> 
 
                                     <div class="col-md-4 col-xs-4 mt-4">
                                        <label for="validationDefault01" class="font-weight-bolder blue ">Email</label>
-                                       <input type="email" class="form-control rounded-pill" id="validationDefault01" value="" name="email" >
+                                       <input type="email" class="form-control rounded-pill" id="validationDefault01" value=""  placeholder="Saisir votre Email" name="email" >
                                        {!! $errors->first('email', '<small class="text-danger">:message</small>') !!}
                                     </div>
 
                                     <div class="col-md-4 col-xs-4 mt-4">
                                        <label for="validationDefault01" class="font-weight-bolder blue ">Numero de téléphone</label>
-                                       <input type="number" class="form-control rounded-pill" id="validationDefault01" value="" name="numero" >
+                                       <input type="number" class="form-control rounded-pill" id="validationDefault01" value=""  placeholder="Numéro de téléphone" name="numero" >
                                        {!! $errors->first('number', '<small class="text-danger">:message</small>') !!}
                                     </div>   
 
                                     <div class="col-md-4 col-xs-3 mt-4">
                                        <label for="validationDefault01" class="font-weight-bolder blue ">Date de naissance</label>
-                                       <input type="date" class="form-control rounded-pill" id="validationDefault01" value="" name="date" >
+                                       <input type="date" class="form-control rounded-pill" id="validationDefault01" value=""  placeholder="Date de naissance" name="date" >
                                        {!! $errors->first('date', '<small class="text-danger">:message</small>') !!}
                                     </div>
 
                                     <div class="col-md-4 col-xs-3 mt-4">
                                        <label for="validationDefault01" class="font-weight-bolder blue ">Lieu de naissance</label>
-                                       <input type="text" class="form-control rounded-pill" id="validationDefault01" value="" name="lieu" >
+                                       <input type="text" class="form-control rounded-pill" id="validationDefault01" value="" placeholder="Lieu de naissance" name="lieu" >
                                        {!! $errors->first('lieu', '<small class="text-danger">:message</small>') !!}
                                     </div>
 
                                     <div class="col-md-4 col-xs-3 mt-4">
                                        <label for="validationDefault01" class="font-weight-bolder blue ">nationalité</label>
-                                       <input type="text" class="form-control rounded-pill" id="validationDefault01" value="" name="nationalite" >
+                                       <input type="text" class="form-control rounded-pill" id="validationDefault01" value=""  placeholder="Nationalité" name="nationalite" >
                                        {!! $errors->first('nationalite', '<small class="text-danger">:message</small>') !!}
                                     </div>
 
                                     <div class="col-md-4 col-xs-4 mt-4">
                                        <label for="validationDefault01" class="font-weight-bolder blue ">Numero CNIB</label>
-                                       <input type="text" class="form-control rounded-pill" id="validationDefault01" value="" name="numero_cnib" >
+                                       <input type="text" class="form-control rounded-pill" id="validationDefault01" value=""  placeholder="CNIB" name="numero_cnib" >
                                        {!! $errors->first('numero_cnib', '<small class="text-danger">:message</small>') !!}
                                     </div> 
                               </div> 

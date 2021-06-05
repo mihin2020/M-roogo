@@ -348,8 +348,27 @@
                         </div>
                     </div>
                 </div>  
-            @endforeach          
+            @endforeach  
+            <div class="col-md-12 mt-4">
+                {{$products->links()}} 
+            </div>  
         </div>
+        </div>
+        <footer>
+            <div class="container-fluid">
+                <div class="row mt-3 d-flex foot justify-content-between">
+                    <div class="col-md-4 mt-3 col-xs-4">
+                        <h4 class="text-center text-white font-weight-bold">A propos</h4>
+                    </div>
+                    <div class="col-md-4 mt-3 col-xs-4">
+                        <h4 class="text-center text-white font-weight-bold ">Plan du site</h4>
+                    </div>
+                    <div class="col-md-4 mt-3 col-xs-4">
+                        <h4 class="text-center text-white font-weight-bold">Nous Contacter</h4>
+                    </div>
+                </div>
+            </div>
+         </footer>
 
         <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/popper.min.js"></script>

@@ -117,6 +117,11 @@
                      </div>
                  @endforelse
             </div>
+            <div class="row mt-3">
+                <div class="col">
+                    {{$products->links()}}
+                </div>
+            </div> 
         </div>
 @endsection
 

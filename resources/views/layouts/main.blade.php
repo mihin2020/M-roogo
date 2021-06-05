@@ -95,14 +95,13 @@
                                 <a href="#" class="nav-link font-weight-bolder"><span class="mr-2 blue icon-account_circle "></span><span class="blue">{{ucfirst(Auth()->user()->first_name)}}</span></a>
                                 <ul class="dropdown arrow-top">
                                     <li>
-                                        <a href="{{ url('logout') }}" class="nav-link font-weight-bolder"><span class="blue">Deconnexion</span></a>
-                                       
                                             <li>
                                                 <a href="{{asset('modifier')}}"  class="nav-link font-weight-bolder">
                                                 <span class="blue">Modifier Compte</span>
                                                 </a>
                                             </li>
-                                       
+                                            
+                                            <a href="{{ url('logout') }}" class="nav-link font-weight-bolder"><span class="blue">Deconnexion</span></a>
                                     </li>
                                 </ul>
                             </li>
