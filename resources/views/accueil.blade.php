@@ -1,106 +1,7 @@
-<!doctype html>
-<html lang="en">
+@extends('layouts.app')
 
-<head>
-    
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+@section('contenu')
 
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
-
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="owl.carousel/assets/owl.theme.default.css">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-
-    <!-- Style -->
-    <link rel="stylesheet" href="css/style.css">
-    <!-- <link rel="stylesheet" href="css/zoom.css"> -->
-    <link rel="stylesheet" href="css/inscription.css">
-
-    <link rel="stylesheet" href="css/bootstrap/bootstrap-icons-1.4.1/fonts/bootstrap-icons.woff">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
-
-    <title>Accueil</title>
-</head>
-
-<body>
-
-
-    <div class="site-mobile-menu site-navbar-target">
-        <div class="site-mobile-menu-header">
-            <div class="site-mobile-menu-close mt-3">
-                <span class="icon-close2 js-menu-toggle"></span>
-            </div>
-        </div>
-        <div class="site-mobile-menu-body"></div>
-    </div>
-
-
-    <div class="top-bar">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <a href="#" class="text-white font-weight-bolder"><span class="mr-2  icon-phone"></span> <span class="d-none d-md-inline-block">+226 61 77 15 56</span></a>
-                    <span class="mx-md-2 d-inline-block"></span>
-                    <a href="#" class="text-white font-weight-bolder"><span class="mr-2  icon-envelope-open-o"></span> <span class="d-none d-md-inline-block">M'roogo@gmail.com</span></a>
-                    <div class="float-right mr-3">
-                        <a href="#" class="text-white font-weight-bolder"><span class="mr-2  icon-facebook"></span> <span class="d-none d-md-inline-block">Facebook</span></a>
-                        <span class="mx-md-2 d-inline-block"></span>
-                        <a href="#" class="text-white font-weight-bolder"><span class="mr-2  icon-linkedin"></span> <span class="d-none d-md-inline-block">Linkedin</span></a>
-                        <span class="mx-md-2 d-inline-block"></span>
-                        <a href="https://api.whatsapp.com/send?phone=22675672644" class="text-white font-weight-bolder"><span class="mr-2  icon-whatsapp"></span> <span class="d-none d-md-inline-block">WhatsApp</span></a>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-
-    <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
-
-        <div class="container">
-            <div class="row align-items-center position-relative">
-                <div class="site-logo">
-                    <a href="index.html" class="text-black"><img src="images/logo2.png" width="125px" height="75px" alt=""></a>
-                    <div class="d-inline-block ml-lg-4">
-                        <a href="{{route('connexion')}}">
-                        <button type="button" class="btn btn-outline-primary font-weight-bolder rounded-pill"><svg xmlns="http://www.w3.org/2000/svg" width="35" height="25" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
-                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
-                          </svg><span class="ml-2">Publier une annonce</span> </button>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <nav class="site-navigation text-right ml-auto " role="navigation">
-                        <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
-                            <li class="has-children ">
-                                <a href="#" class="nav-link blue font-weight-bolder mr-lg-5"><span class="blue">Services</span></a>
-                                <ul class="dropdown arrow-top">
-                                    <li>
-                                        <a href="#" class="nav-link font-weight-bolder"><span class="blue">Demenagement</span></a>
-                                    </li>
-                                    <li><a href="#" class="nav-link font-weight-bolder"><span class="blue">Amenagement</span></a></li>
-                                    <li><a href="#" class="nav-link font-weight-bolder"><span class="blue">Co-location</span></a></li>
-                                </ul>
-                            </li>
-                            <li><a href="{{route('inscription')}}" class="nav-link font-weight-bolder mr-lg-5"><span class="blue">Créer un compte</span></a></li>
-                            <li>
-                                <a href="{{route('connexion')}}" class="nav-link font-weight-bolder"><span class="mr-2 blue icon-account_circle "></span><span class="blue">Se connecter</span></a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="toggle-button d-inline-block d-lg-none"><a href="" class="site-menu-toggle py-5 js-menu-toggle text-black"><span class="icon-menu h3"></span></a></div>
-            </div>
-        </div>
-    </header>
     <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
@@ -160,26 +61,26 @@
             <div class="search-form-content mt-5 ">
                 <div class="card shadow">
                     <div class="card-body">
-                        <form action="#" class="filter-form">
+                        <form action="" class="filter-form" method="">
                             <div class="row">
                                 <div class="col-md-4 d-inline-block">
-                                    <input type="text" class="form-control mt-4  rounded-pill" id="validationDefault01" value="" placeholder="Nombre de pièce" required>
+                                    <input type="text" class="form-control mt-4  rounded-pill" id="validationDefault01" value="" name="piece" placeholder="Nombre de pièce" required>
                                 </div>
                                 <div class="col-md-4 d-inline-block">
-                                    <input type="text" class="form-control mt-4  rounded-pill " id="validationDefault01" value="" placeholder="Prix min" required>
+                                    <input type="number" class="form-control mt-4  rounded-pill " id="validationDefault01" value="" name="min" placeholder="Prix min" required>
                                 </div>
                                 <div class="col-md-4 d-inline-block">
-                                    <input type="text" class="form-control mt-4  rounded-pill" id="validationDefault01" value="" placeholder="Prix max" required>
+                                    <input type="number" class="form-control mt-4  rounded-pill" id="validationDefault01" value="" name="max" placeholder="Prix max" required>
                                 </div>
 
                                 <div class="col-md-4 d-inline-block">
-                                    <input type="text" class="form-control mt-4  rounded-pill" id="validationDefault01" value="" placeholder="Type" required>
+                                    <input type="text" class="form-control mt-4  rounded-pill" id="validationDefault01" value="" name="type" placeholder="Type" required>
                                 </div>
                                 <div class="col-md-4 d-inline-block">
-                                    <input type="text" class="form-control mt-4  rounded-pill" id="validationDefault01" value="" placeholder="Superficie" required>
+                                    <input type="text" class="form-control mt-4  rounded-pill" id="validationDefault01" value="" name="" placeholder="Superficie">
                                 </div>
                                 <div class="col-md-4 d-inline-block">
-                                    <input type="text" class="form-control mt-4  rounded-pill" id="validationDefault01" value="" placeholder="Localisation" required>
+                                    <input type="text" class="form-control mt-4  rounded-pill" id="validationDefault01" value="" name="localisation" placeholder="Localisation" required>
                                 </div>
                             </div>
                             <div class='row'>
@@ -214,25 +115,35 @@
                             <img class="modal-content" id="img01">
                             <div id="caption"></div>
                             </div> -->
-                        <div class="card-body">
+                        <div class="card-body border rounded taille">
                             <h5 class="card-title font-weight-bold blue">{{$product->type_biens}}  {{$product->statut}}  </h5>
                                     <p>Prix :{{$product->prix}}/mois</p>
                                     <p>Quartier:{{$product->localisation}}</p>
 
-                                @if ( strlen($product) >= 100)
+                                @if ( strlen($product) >= 50)
 
-                                    <p>{{ substr($product->description, 0, 100)."..." }} </p>
+                                    <p>{{ substr($product->description, 0, 50)."..." }} </p>
 
                                 @else
                                     {{ $uneRes->commDep }}
                                 @endif
                                 <div class="row">
-                                    <div class="col-md-6 col-xs-6 ">
+                                    <div class="col-md-6 col-xs-6 mt-2 ">
                                     <a href="" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#view_{{$product->id}} " data-whatever="@getbootstrap">Contactez</a>
                                     </div>
-                                    <div class="col-md-6 col-xs-6 mt-2 ">
+                                    <div class="col-md-6 col-xs-6 mt-3 ">
                                          <p class="d-flex justify-content-end date">publié le {{date('d-m-Y', strtotime($product->created_at))}}</p>
                                     </div>
+
+                                    <div class="offset-6"></div>
+                                    <div class="stars col-6 d-flex justify-content-end ">
+                                        <i class="star stargrey  fas fa-star" data-index="0"></i>
+                                        <i class="star stargrey  fas fa-star" data-index="1"></i>
+                                        <i class="star stargrey fas fa-star" data-index="2"></i>
+                                        <i class="star stargrey  fas fa-star" data-index="3"></i>
+                                        <i class="star stargrey fas fa-star" data-index="4"></i>
+                                    </div>
+ 
                                     @foreach($products as $product)
                                     <div class="modal fade" id="view_{{$product->id}}" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                           <div class="modal-dialog modal-lg">
@@ -354,27 +265,5 @@
             </div>  
         </div>
         </div>
-        <footer>
-            <div class="container-fluid">
-                <div class="row mt-3 d-flex foot justify-content-between">
-                    <div class="col-md-4 mt-3 col-xs-4">
-                        <h4 class="text-center text-white font-weight-bold">A propos</h4>
-                    </div>
-                    <div class="col-md-4 mt-3 col-xs-4">
-                        <h4 class="text-center text-white font-weight-bold ">Plan du site</h4>
-                    </div>
-                    <div class="col-md-4 mt-3 col-xs-4">
-                        <h4 class="text-center text-white font-weight-bold">Nous Contacter</h4>
-                    </div>
-                </div>
-            </div>
-         </footer>
-
-        <script src="js/jquery-3.3.1.min.js"></script>
-        <script src="js/popper.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/jquery.sticky.js"></script>
-        <script src="js/main.js"></script>
-</body>
-
-</html>
+       
+ @endsection

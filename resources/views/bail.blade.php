@@ -12,16 +12,18 @@
 
         <h5>ENTRE LES SOUSSIGNES</h5>
         <div class="col-lg-10">
-            <p> {{ucfirst(Auth()->user()->first_name)}}, résident 68 rue Gustave DELORY 59000 LILLE.
+            <p> {{(Auth()->user()->first_name)}},
+            @foreach($locations as $location)
+             résident 68 rue Gustave DELORY 59000 LILLE.
                 Ci-après dénommé ’ le <strong>BAILLEUR</strong>‘’ D’UNE PART</p>
+              
         </div>
         <h5> ET</h5>
         <div class="col-lg-10">
             <p>
             
-                née le birth_date à place_of_birth, de nationalité
-                nationality, résidant address  , FRANCE, et dont le numéro de sécurité sociale
-                est 2 96 07 99 256 009 78, titulaire de la pièce d'idéntité numéro .
+            {{$location->locataire->nom}} née le {{date('d-m-Y', strtotime($location->locataire->date))}}, de nationalité
+            {{$location->locataire->nationalite}}, résidant à {{$location->locataire->lieu}} , Burkina faso,, titulaire de la pièce d'idéntité numéro {{$location->locataire->numero_cnib}} .
                 Ci-après dénommés ‘’le <strong>PRENEUR</strong>‘’ D’AUTRE PART</p>
             <strong>Il a été arrêté et convenu ce qui suit :</strong>
             
@@ -31,37 +33,33 @@
 
     <h4>OBJET DU BAIL</h4>
     <div class="col-lg-10">
-        <p>Par les présentes, first_name , accorde en bail à loyer,
+        <p>Par les présentes, Mr {{(Auth()->user()->first_name)}}  , accorde en bail à loyer,
             conformément aux dispositions de la loi n° 89-462 du 6 juillet 1989, à  locataire soussigné de deuxième part, qui acceptent les biens dont la désignation suit :</p>
         <h5>Désignation des lieux</h5>
-        <p>Un appartement au rez-de-chaussée de l’immeuble sis à  location->property->city (   location->property->address,
-            d’environ  locationpropertysize  m2, comprenant un couloir d’entrée desservant la cuisine et la chambre, une cuisine
-            équipée, une chambre et une salle de bain avec WC.
+        <p>Un(e)  {{$location->ajout_bien->type_biens}}  sis à  {{$location->ajout_bien->localisation}} 
+   comportant ou ne comportant pas  0{{$location->ajout_bien->toilette}} toilette(s) , garage:{{$location->ajout_bien->garage}} , assainissement:{{$location->ajout_bien->eau}} ,plafond: {{$location->ajout_bien->plafond}} , electricité: {{$location->ajout_bien->electricite}}
             Tels que les dits lieux, conformes aux plan et descriptifs annexés aux présentent s’étendent, se
             poursuivent et comportent dans leur état actuel, sans exception ni réserve, bien connus du preneur
             qui dispense le bailleur d’en faire ici une plus ample désignation</p>
         <h5> Destination / usage</h5>
         <p>Les lieux seront exclusivement à usage d’habitation. Le preneur s’engage à se conformer à toutes
-            les prescriptions ou sujétions des divers règlements régissant l’immeuble, de telle sorte que le
+            les prescriptions ou sujétions des divers règlements , de telle sorte que le
             bailleur ne puisse être recherché à ce sujet.
-            Parties communes
-            Le logement objet de la location fait partie du bâtiment situé au  locationpropertyaddress qui fait à son
-            tour partie d’un ensemble immobilier comprenant d’autres bâtiments ayant des parties et des
-            services communs.</p>
+          </p>
     </div>
 
     <h4> DUREE</h4>
     <div class="col-lg-10">
         <p>
-            Le présent bail est consenti et accepté pour une durée d’une année, à compter du location-date_entree.</p>
+            Le présent bail est consenti et accepté pour une durée d’une année, à compter du  {{date('d-m-Y', strtotime($location->date_entre))}}.</p>
     </div>
 
     <h4>LOYER</h4>
     <div class="col-lg-10">
         <p>
             <p>Le présent bail est consenti moyennant un loyer mensuel de locationloyereuros que
-                le PRENEUR s'oblige à payer au BAILLEUR en son domicile ou celui de son mandataire, d’avance
-                (le premier de chaque mois) en monnaie ayant cours légal en France.</p>
+                le PRENEUR s'oblige à payer au BAILLEUR  ou celui de son mandataire, d’avance
+                (le premier de chaque mois) .</p>
             <h5>Mode et règlement</h5>
             Les paiements des loyers, des charges et des accessoires seront effectués par virement sur le
             compte bancaire du bailleur ou son représentant légal.
@@ -70,7 +68,7 @@
         </p>
         <h5>Révision du loyer</h5>
         <p>En cas renouvellement ou prolongement de la location avec l’accord du bailleur, le loyer ci-dessus
-            mentionné sera révisé automatiquement et sans préavis, tous les ans, à la date anniversaire du
+            mentionné sera révisé automatiquement tous les ans, à la date anniversaire du
             bail, en fonction de la variation de l’indice de référence des loyers, publié par l’Institut National de
             la Statistique et des Études Économiques (INSEE).
             L’indice de référence est le dernier indice connu à la date du bail, indice du deuxième trimestre
@@ -398,17 +396,18 @@
             conséquences, au Tribunal du lieu de situation du logement.
         </p>
     </div>
-    <p>Fait à  locationpropertycity, le  locationdate_signature_bail</p>
+    <p>Fait à  Ouagadougou , le  {{date('d-m-Y', strtotime($location->date_bail))}}</p>
 
     <p> Signatures : </p>
     <div class="col-lg-4">
-        <p> locationuserfirst_name  locationuserlast_name  </p>
+        <p>  {{(Auth()->user()->first_name)}} le Bailleur </p>
     </div>
     <div class="col-lg-4">
-        <p>  locationlocatairefullName()  </p>
+        <p>  {{$location->locataire->nom}}</p>
     </div>
  </div>
 </div>
 <div class="offset-1"></div>
 </div>
+@endforeach  
 @endsection

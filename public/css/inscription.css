@@ -122,3 +122,20 @@
         height: 150px;
     }
 }
+
+
+/* .taille {
+    max-height: 300px;
+} */
+
+.stargrey {
+    color: #96969d;
+}
+
+.yellow {
+    color: #fedc18;
+}
+
+.star:hover {
+    cursor: pointer;
+}

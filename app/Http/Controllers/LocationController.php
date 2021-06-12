@@ -8,6 +8,7 @@ use App\locataires;
 use App\locations;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use phpDocumentor\Reflection\Location;
 
 class LocationController extends Controller
 {
@@ -109,6 +110,6 @@ class LocationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
     }
 }

@@ -12,7 +12,7 @@ class BailController extends Controller
     public function show_bail(){
         $locations=locations::all();
         if(Auth::check()) {
-        $locataires=locataires::all()->where('user_id', '=', Auth::user()->id);
+        $locataires=locataires::all()->where('user_id', Auth::user()->id);
         return view('bail',compact('locataires','locations'));
     }
 }

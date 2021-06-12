@@ -103,12 +103,17 @@
                                        <div class="card-body">
                                        @forelse($locataires as $locataire)
                                              <ul class='font-weight-bold text-secondary row'>                                  
-                                                <li class='col-md-10 col-xs-10'>{{$locataire->nom}} {{$locataire->prenom}}</li>
-                                                <div class='col-md-2 col-xs-2'>
-                                                   <a href="delete/{{$locataire->id}}"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
-                                                      <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
-                                                      </svg>
-                                                   </a>
+                                                <li class='col-md-10 col-xs-10 mt-2'><a href="{{route('mes_locataires.edit',$locataire->id)}}">{{$locataire->nom}} {{$locataire->prenom}}</a></li>
+                                                <div class='col-md-2 col-xs-2 p-0 '>
+                                                   <form action="{{ route('mes_locataires.destroy', $locataire->id)}}" method="post">
+                                                      @csrf
+                                                      @method('DELETE')
+                                                      <button  class="btn">
+                                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash-fill"  type="submit"viewBox="0 0 16 16">
+                                                            <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                                                         </svg>
+                                                      </button>
+                                                   </form>   
                                                 </div>
                                              </ul>
                                              @empty

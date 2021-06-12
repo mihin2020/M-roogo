@@ -21,4 +21,5 @@ class Ajout_bien extends Model
 
         return $this->belongsto(User::class,'user_id');
     }
+
 }

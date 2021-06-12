@@ -7,19 +7,19 @@
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="owl.carousel/assets/owl.theme.default.css">
+    <link rel="stylesheet" href="{{asset('fonts/icomoon/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('owl.carousel/assets/owl.theme.default.css')}}">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/inscription.css">
+    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/inscription.css')}}">
 
     <!-- Style -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/form.css')}}">
 
-    <link rel="stylesheet" href="css/bootstrap/bootstrap-icons-1.4.1/fonts/bootstrap-icons.woff">
+    <link rel="stylesheet" href="{{asset('css/bootstrap/bootstrap-icons-1.4.1/fonts/bootstrap-icons.woff')}}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300&display=swap" rel="stylesheet">
 
@@ -62,7 +62,7 @@
         <div class="container">
             <div class="row align-items-center position-relative">
                 <div class="site-logo">
-                    <a href="{{asset('accueil')}}" class="text-black"><img src="images/logo2.png" width="125px" height="75px" alt=""></a>
+                    <a href="{{asset('accueil')}}" class="text-black"><img src="{{asset('images/logo2.png')}}" width="125px" height="75px" alt=""></a>
                 </div>
                 <div class="col-12">
                     <nav class="site-navigation text-right ml-auto " role="navigation">
@@ -88,11 +88,11 @@
                             <li><a href="{{asset('mes_locations')}}" class="nav-link font-weight-bolder mr-lg-2"><span class="blue">Mes locations</span></a>
                             </li>
 
-                            <li><a href="" class="nav-link font-weight-bolder mr-lg-2"><span class="blue">Mes paiements</span></a>
+                            <li><a href="{{asset('paiement')}}" class="nav-link font-weight-bolder mr-lg-2"><span class="blue">Mes paiements</span></a>
                             </li>
 
                             <li class="has-children ">
-                                <a href="#" class="nav-link font-weight-bolder"><span class="mr-2 blue icon-account_circle "></span><span class="blue">{{ucfirst(Auth()->user()->first_name)}}</span></a>
+                                <a href="#" class="nav-link font-weight-bolder"><span class="mr-2 blue icon-account_circle "></span><span class="blue">{{(Auth()->user()->first_name)}}</span></a>
                                 <ul class="dropdown arrow-top">
                                     <li>
                                             <li>

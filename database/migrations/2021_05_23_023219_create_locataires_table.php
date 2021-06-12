@@ -30,6 +30,7 @@ class CreateLocatairesTable extends Migration
             ->references('id')
             ->on('users')
             ->onDelete('cascade');
+            // $table->foreignId('user_id')->constrained();
         });
     }
 

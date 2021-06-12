@@ -87,10 +87,13 @@
                                     </div>
                                 </div>
                                 
-                                <div class="modal-footer row">
-                                     
-                                   <a href="{{asset('Update_bien')}}"><button type="button" class="btn btn-success" >modifier</button></a> 
-                                   <a href="delete/{{$product->id}}"><button type="button" class="btn btn-danger col-12  ">Retirer</button></a> 
+                                <div class="modal-footer row">  
+                                   <a href="{{ route('ajout_bien.edit',$product->id) }}"><button type="button" class="btn btn-success" >modifier</button></a> 
+                                   <form action="{{ route('ajout_bien.destroy', $product->id)}}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button  class="btn btn-danger">Retirer </button>
+                                    </form>   
                                 </div>
                                 </div>
                             </div>

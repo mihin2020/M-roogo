@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class Bien_updateController extends Controller
 {
    public function Vue(){
-     $products=Ajout_bien::all()->where('user_id', '=', Auth::user()->id);
+     $products=Ajout_bien::all()->where('user_id', Auth::user()->id);
     return view('Update_bien',compact('products'));
    }
 }

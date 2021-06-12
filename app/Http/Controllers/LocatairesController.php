@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\locataires;
+use App\locations;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,7 +17,7 @@ class LocatairesController extends Controller
     public function index()
     {    
         if(Auth::check()) {
-            $locataires = locataires::all()->where('user_id','=', Auth::user()->id);
+            $locataires = locataires::all()->where('user_id', Auth::user()->id);
             return view('mes_locataires',compact('locataires'));
          ;
         
@@ -88,7 +89,8 @@ class LocatairesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $locataires = locataires::find($id);
+        return view('locataires.edit',compact('locataires'));
     }
 
     /**
@@ -100,7 +102,32 @@ class LocatairesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $locataires=$request->validate([
+            'user_id'=>'required',
+            'nom'=>'required|string|',
+            'prenom'=>'required |string|',
+            'email'=>'email',
+            'numero'=>'integer',
+            'date'=>'required|date|', 
+            'lieu'=>'required|string|', 
+            'nationalite'=>'required|string|', 
+            'numero_cnib'=>'required|string|',   
+        ]);
+        $locataires= locataires::find($id);
+ 
+        $locataires->user_id =  $request->get('user_id');
+        $locataires->nom =  $request->get('nom');
+        $locataires->prenom =  $request->get('prenom');
+        $locataires->email =  $request->get('email');
+        $locataires->numero =  $request->get('numero');
+        $locataires->date =  $request->get('date');
+        $locataires->lieu =  $request->get('lieu');
+        $locataires->nationalite=  $request->get('nationalite');
+        $locataires->numero_cnib =  $request->get('numero_cnib');
+        $locataires->save();
+
+        
+        return redirect()->intended('mes_locataires')->with('success', 'Modification effectuée avec succes');
     }
 
     /**
@@ -111,6 +138,8 @@ class LocatairesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $locataires = locataires::find($id);
+        $locataires->delete(); 
+        return redirect('/mes_locataires')->with('success', 'locataire retiré avec succès');
     }
 }

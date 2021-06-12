@@ -18,7 +18,7 @@ class AccueilController extends Controller
     public function index()
     {
         $utilisateurs = User::all();
-        $products = Ajout_bien::paginate(3);
+        $products = Ajout_bien::orderBy('created_at', 'desc')->paginate(6);
         return view('/accueil',compact('products','utilisateurs'));
     }
 
@@ -104,4 +104,5 @@ class AccueilController extends Controller
     {
         //
     }
+    
 }

@@ -22,6 +22,6 @@ class SuppController extends Controller
   
      public function destroy_location($id){
       locations::where('id', $id)->delete();
-      return redirect('/mes_locations')->with('success', 'le locataire a été retirer avec succes');;
+      return redirect('/mes_locations')->with('success', 'la location a été retirer avec succes');;
      }
 }

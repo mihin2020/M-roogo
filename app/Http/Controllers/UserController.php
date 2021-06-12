@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
+use function Ramsey\Uuid\v1;
+
 class UserController extends Controller {
 
  // -------------------- [ user registration view ] -------------
@@ -85,7 +87,7 @@ class UserController extends Controller {
         return redirect()->intended('dashboard');
 
     }elseif (Auth::attempt($userCredentials)&& $recuperation[0]->role_id ==2) {
-        return 'locataire';
+        return redirect()->intended('locataires.locataire');
 
     }else {
         return back()->with('error', 'Email ou Mot de passe incorrect');
@@ -103,8 +105,15 @@ class UserController extends Controller {
     }
         return redirect::to("/connexion")->withError("Veuillez vous connecter s'il vous plait");
 }
-
-
+// ------------------ [ locataire Section ] ---------------------
+    public function locataire() {
+        if(Auth::check()) {
+        $utilisateurs = User::all();
+        $products = Ajout_bien::paginate(3);
+        return view('locataires.locataire',compact('products','utilisateurs'));
+    }
+        return redirect::to("/connexion")->withError("Veuillez vous connecter s'il vous plait");
+}
 // ------------------- [ User logout function ] ----------------------
 public function logout(Request $request ) {
         $request->session()->flush();

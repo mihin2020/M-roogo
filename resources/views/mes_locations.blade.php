@@ -106,14 +106,18 @@
                                     <p class='font-weight-bold text-secondary'>Date du bail: {{date('d-m-Y', strtotime($location->date_bail))}}</p> 
                                     <div class='row'>
                                        <p class='font-weight-bold text-secondary col-md-12 col-xs-12'>date d'entrée: {{date('d-m-Y', strtotime($location->date_entre))}}</p>
-                                       <p class="col-md-4 col-xs-4 d-flex justify-content-start"> 
-                                          <a href="delete/{{$location->id}}">
-                                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-trash-fill " viewBox="0 0 16 16">
-                                                   <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
-                                             </svg>
-                                          </a>
-                                       </p>
-                                       <div class="d-flex justify-content-center col-md-4 col-xs-4">
+                                       <div class="col-md-4 col-xs-4 d-flex justify-content-start "> 
+                                           <form action="{{ route('mes_locations.destroy', $location->id)}}" method="post">
+                                              @csrf
+                                              @method('DELETE')
+                                              <button  class="btn">
+                                                 <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-trash-fill"  type="submit"viewBox="0 0 16 16">
+                                                    <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+                                                 </svg>
+                                              </button>
+                                           </form>         
+                                       </div>
+                                       <div class="d-flex justify-content-center col-md-4 col-xs-4 mt-2">
                                           <a href="{{asset('bail')}}">
                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-card-text" viewBox="0 0 16 16">
                                              <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
@@ -121,7 +125,7 @@
                                            </svg>
                                           </a>
                                        </div>
-                                       <p class="col-md-4 col-xs-4 d-flex justify-content-end "> 
+                                       <p class="col-md-4 col-xs-4 d-flex justify-content-end mt-2 "> 
 
                                           <a  href="" data-toggle="modal" data-target="#view_{{$location->id}}" data-whatever="@getbootstrap">
 
