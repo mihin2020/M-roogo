@@ -84,7 +84,7 @@ class UserController extends Controller {
        
         // check user using auth function
         if (Auth::attempt($userCredentials)&& $recuperation[0]->role_id ==1) {
-        return redirect()->intended('dashboard');
+        return redirect()->intended('dashboard_bailleur');
 
     }elseif (Auth::attempt($userCredentials)&& $recuperation[0]->role_id ==2) {
         return redirect()->intended('locataires.locataire');
@@ -101,7 +101,7 @@ class UserController extends Controller {
         // check if user logged in
         if(Auth::check()) {
         $products=Ajout_bien::where('user_id', Auth::user()->id)->paginate(4);
-        return view('dashboard',compact('products'));
+        return view('dashboard_bailleur',compact('products'));
     }
         return redirect::to("/connexion")->withError("Veuillez vous connecter s'il vous plait");
 }

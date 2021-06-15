@@ -5,7 +5,7 @@
          <div class="row">
             <div class="col-md-8 col-xs-12 mt-5">
             <h3 class='blue text-center font-weight-bolder'>Mes locations</h3>
-            <div class="card shadow mt-4">   
+            <div class="card shadow my-4">   
                   <div class="card-body ">
                   @if ($message = Session::get('success'))
                      <div class="alert alert-success alert-block">

@@ -19,6 +19,7 @@
 
     <!-- Style -->
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('css/demenagement.css')}}">
     <link rel="stylesheet" href="{{asset('css/inscription.css')}}">
     <!-- <link rel="stylesheet" href="css/zoom.css"> -->
   
@@ -88,10 +89,10 @@
                                 <a href="#" class="nav-link blue font-weight-bolder mr-lg-5"><span class="blue">Services</span></a>
                                 <ul class="dropdown arrow-top">
                                     <li>
-                                        <a href="#" class="nav-link font-weight-bolder"><span class="blue">Demenagement</span></a>
+                                        <a href="{{asset('demenagement')}}" class="nav-link font-weight-bolder"><span class="blue">Demenagement</span></a>
                                     </li>
-                                    <li><a href="#" class="nav-link font-weight-bolder"><span class="blue">Amenagement</span></a></li>
-                                    <li><a href="#" class="nav-link font-weight-bolder"><span class="blue">Co-location</span></a></li>
+                                    <!-- <li><a href="#" class="nav-link font-weight-bolder"><span class="blue">Amenagement</span></a></li>
+                                    <li><a href="#" class="nav-link font-weight-bolder"><span class="blue">Co-location</span></a></li> -->
                                 </ul>
                             </li>
                             <li><a href="{{route('inscription')}}" class="nav-link font-weight-bolder mr-lg-5"><span class="blue">Créer un compte</span></a></li>
@@ -130,9 +131,9 @@
     </section>
 
     <footer>
-            <div class="container-fluid">
+            <div class="container">
                 <div class="row mt-3 d-flex foot justify-content-between">
-                    <div class="col-md-4 mt-3 col-xs-4">
+                    <!-- <div class="col-md-4 mt-3 col-xs-4">
                         <h4 class="text-center text-white font-weight-bold">A propos</h4>
                     </div>
                     <div class="col-md-4 mt-3 col-xs-4">
@@ -140,7 +141,10 @@
                     </div>
                     <div class="col-md-4 mt-3 col-xs-4">
                         <h4 class="text-center text-white font-weight-bold">Nous Contacter</h4>
-                    </div>
+                    </div> -->
+                        <div class="offset-4 "></div>
+                        <h4 class="text-white font-weight-bold col-md-4 ">   Copyright <span class="text-white">&copy;</span> M'roogo 2021</h4>
+                        <div class="offset-4"></div>
                 </div>
             </div>
          </footer>

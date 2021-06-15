@@ -6,7 +6,7 @@
                <div class="col-md-8 col-xs-4">
                      <h3 class='blue text-center font-weight-bolder mt-5'>Mes locataires</h3>
 
-                     <div class="card shadow mt-4">   
+                     <div class="card shadow my-4">   
                            <div class="card-body ">
                            @if ($message = Session::get('success'))
                                     <div class="alert alert-success alert-block">
@@ -105,7 +105,7 @@
                                              <ul class='font-weight-bold text-secondary row'>                                  
                                                 <li class='col-md-10 col-xs-10 mt-2'><a href="{{route('mes_locataires.edit',$locataire->id)}}">{{$locataire->nom}} {{$locataire->prenom}}</a></li>
                                                 <div class='col-md-2 col-xs-2 p-0 '>
-                                                   <form action="{{ route('mes_locataires.destroy', $locataire->id)}}" method="post">
+                                                   <form action="{{ route('mes_locataires.destroy',$locataire->id)}}" method="post">
                                                       @csrf
                                                       @method('DELETE')
                                                       <button  class="btn">

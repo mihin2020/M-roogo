@@ -117,7 +117,7 @@
                             </div> -->
                         <div class="card-body border rounded taille">
                             <h5 class="card-title font-weight-bold blue">{{$product->type_biens}}  {{$product->statut}}  </h5>
-                                    <p>Prix :{{$product->prix}}/mois</p>
+                                    <p>Prix :{{$product->prix}}/mois    <span class="badge badge-primary">{{$product->available}}</span></p>
                                     <p>Quartier:{{$product->localisation}}</p>
 
                                 @if ( strlen($product) >= 50)

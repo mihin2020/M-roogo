@@ -67,7 +67,7 @@
                 <div class="col-12">
                     <nav class="site-navigation text-right ml-auto " role="navigation">
                         <ul class="site-menu main-menu js-clone-nav ml-auto d-none d-lg-block">
-                            <li><a href="{{asset('dashboard')}}" class="nav-link font-weight-bolder mr-lg-2"><span class="blue">Accueil</span></a>
+                            <li><a href="{{asset('dashboard_bailleur')}}" class="nav-link font-weight-bolder mr-lg-2"><span class="blue">Accueil</span></a>
                             </li>
 
                             <li class="has-children ">
@@ -88,8 +88,8 @@
                             <li><a href="{{asset('mes_locations')}}" class="nav-link font-weight-bolder mr-lg-2"><span class="blue">Mes locations</span></a>
                             </li>
 
-                            <li><a href="{{asset('paiement')}}" class="nav-link font-weight-bolder mr-lg-2"><span class="blue">Mes paiements</span></a>
-                            </li>
+                            <!-- <li><a href="{{asset('paiement')}}" class="nav-link font-weight-bolder mr-lg-2"><span class="blue">Mes paiements</span></a>
+                            </li> -->
 
                             <li class="has-children ">
                                 <a href="#" class="nav-link font-weight-bolder"><span class="mr-2 blue icon-account_circle "></span><span class="blue">{{(Auth()->user()->first_name)}}</span></a>
@@ -117,19 +117,11 @@
     @yield('contenu')
              
     <footer>
-        <div class="container-fluid">
-            <div class="row mt-5 d-flex foot justify-content-between">
-                <div class="col-md-4 mt-3 col-xs-4">
-                    <h4 class="text-center text-white font-weight-bold">A propos</h4>
-                </div>
-                <div class="col-md-4 mt-3 col-xs-4">
-                    <h4 class="text-center text-white font-weight-bold ">Plan du site</h4>
-                </div>
-                <div class="col-md-4 mt-3 col-xs-4">
-                    <h4 class="text-center text-white font-weight-bold">Nous Contacter</h4>
-                </div>
-            </div>
-        </div>
+    <div class="row mt-3 d-flex foot justify-content-between">              
+        <div class="offset-4"></div>
+        <h4 class="text-white font-weight-bold col-md-4  ">  Copyright <span class="text-white">&copy;</span> M'roogo 2021</h4>
+        <div class="offset-4"></div>
+    </div>
     </footer>
       <script>
             $('#exampleModal').on('show.bs.modal', function (event) {

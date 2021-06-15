@@ -166,7 +166,7 @@ class Ajout_bienController extends Controller
         // $products->picture =  $image;
         $products->save();
         ;
-         return redirect()->intended('/dashboard')->with('success', 'Votre bien a été ajouté avec succes');
+         return redirect()->intended('/dashboard_bailleur')->with('success', 'Votre bien a été ajouté avec succes');
     }
 
 
@@ -180,11 +180,7 @@ class Ajout_bienController extends Controller
     {
         $products = Ajout_bien::find($id);
         $products->delete(); 
-        return redirect('/dashboard')->with('success', 'Votre bien à été retiré avec succes');
-        
-    
-
-
+        return redirect('/dashboard_bailleur')->with('success', 'Votre bien à été retiré avec succes');
 
     }
 }

@@ -4,8 +4,7 @@
 
     <section>
       <div class='col-xs-12 image'>
-         <!-- <img src="images/bail.png " width="100%" height="675px" alt="">  -->
-         <div class='container p-0'>
+         <div class='container  p-0'>
             <div class='col-md-7 col-xs-7 '>
                 <h1 class='text-white small_text font-weight-bolder display-4 text-wrap'> Avec M'Roogo publier et optimiser la gestion de vos biens en location</h1>
             </div>
@@ -29,9 +28,12 @@
                     
                 <div class="col-md-6 col-xs-12 mt-4">
                 <div class="card shadow ">
-                        <div class="card-header d-flex justify-content-between">
+                        <div class="card-header d-flex justify-content-between ">
                                 <h5 class="font-weight-bold blue">{{$product->type_biens}} à {{$product->localisation}} </h5>
                                 <a href="" class="btn btn-primary" data-toggle="modal" data-target="#view_{{$product->id}}" data-whatever="@getbootstrap">Voir details</a>
+                        </div>
+                        <div class="col-12">
+                        <span class="badge badge-primary">{{$product->available}}</span>
                         </div>
 
                      <!-- modal -->
@@ -87,7 +89,10 @@
                                     </div>
                                 </div>
                                 
-                                <div class="modal-footer row">  
+                                <div class="modal-footer row">
+                                
+                                     <a href="available/{{$product->id}}"><button type="button" class="btn btn-xs btn-secondary">Statut de Disponibilité</button></a>
+                                
                                    <a href="{{ route('ajout_bien.edit',$product->id) }}"><button type="button" class="btn btn-success" >modifier</button></a> 
                                    <form action="{{ route('ajout_bien.destroy', $product->id)}}" method="post">
                                         @csrf

@@ -21,7 +21,7 @@
             <strong>{{ $message }}</strong>
         </div>
      @endif
-    <div class="card-body  shadow">
+    <div class="card-body my-4 shadow">
         
     <form method="post" action="ajout_bien" enctype="multipart/form-data">
            @csrf

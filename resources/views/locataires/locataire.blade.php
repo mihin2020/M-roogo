@@ -61,26 +61,26 @@
             <div class="search-form-content mt-5 ">
                 <div class="card shadow">
                     <div class="card-body">
-                        <form action="#" class="filter-form">
+                        <form action="" class="filter-form" method="">
                             <div class="row">
                                 <div class="col-md-4 d-inline-block">
-                                    <input type="text" class="form-control mt-4  rounded-pill" id="validationDefault01" value="" placeholder="Nombre de pièce" required>
+                                    <input type="text" class="form-control mt-4  rounded-pill" id="validationDefault01" value="" name="piece" placeholder="Nombre de pièce" required>
                                 </div>
                                 <div class="col-md-4 d-inline-block">
-                                    <input type="text" class="form-control mt-4  rounded-pill " id="validationDefault01" value="" placeholder="Prix min" required>
+                                    <input type="number" class="form-control mt-4  rounded-pill " id="validationDefault01" value="" name="min" placeholder="Prix min" required>
                                 </div>
                                 <div class="col-md-4 d-inline-block">
-                                    <input type="text" class="form-control mt-4  rounded-pill" id="validationDefault01" value="" placeholder="Prix max" required>
+                                    <input type="number" class="form-control mt-4  rounded-pill" id="validationDefault01" value="" name="max" placeholder="Prix max" required>
                                 </div>
 
                                 <div class="col-md-4 d-inline-block">
-                                    <input type="text" class="form-control mt-4  rounded-pill" id="validationDefault01" value="" placeholder="Type" required>
+                                    <input type="text" class="form-control mt-4  rounded-pill" id="validationDefault01" value="" name="type" placeholder="Type" required>
                                 </div>
                                 <div class="col-md-4 d-inline-block">
-                                    <input type="text" class="form-control mt-4  rounded-pill" id="validationDefault01" value="" placeholder="Superficie" required>
+                                    <input type="text" class="form-control mt-4  rounded-pill" id="validationDefault01" value="" name="" placeholder="Superficie">
                                 </div>
                                 <div class="col-md-4 d-inline-block">
-                                    <input type="text" class="form-control mt-4  rounded-pill" id="validationDefault01" value="" placeholder="Localisation" required>
+                                    <input type="text" class="form-control mt-4  rounded-pill" id="validationDefault01" value="" name="localisation" placeholder="Localisation" required>
                                 </div>
                             </div>
                             <div class='row'>
@@ -115,25 +115,35 @@
                             <img class="modal-content" id="img01">
                             <div id="caption"></div>
                             </div> -->
-                        <div class="card-body">
+                        <div class="card-body border rounded taille">
                             <h5 class="card-title font-weight-bold blue">{{$product->type_biens}}  {{$product->statut}}  </h5>
-                                    <p>Prix :{{$product->prix}}/mois</p>
+                                    <p>Prix :{{$product->prix}}/mois    <span class="badge badge-primary">{{$product->available}}</span></p>
                                     <p>Quartier:{{$product->localisation}}</p>
 
-                                @if ( strlen($product) >= 100)
+                                @if ( strlen($product) >= 50)
 
-                                    <p>{{ substr($product->description, 0, 100)."..." }} </p>
+                                    <p>{{ substr($product->description, 0, 50)."..." }} </p>
 
                                 @else
                                     {{ $uneRes->commDep }}
                                 @endif
                                 <div class="row">
-                                    <div class="col-md-6 col-xs-6 ">
+                                    <div class="col-md-6 col-xs-6 mt-2 ">
                                     <a href="" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#view_{{$product->id}} " data-whatever="@getbootstrap">Contactez</a>
                                     </div>
-                                    <div class="col-md-6 col-xs-6 mt-2 ">
+                                    <div class="col-md-6 col-xs-6 mt-3 ">
                                          <p class="d-flex justify-content-end date">publié le {{date('d-m-Y', strtotime($product->created_at))}}</p>
                                     </div>
+
+                                    <div class="offset-6"></div>
+                                    <div class="stars col-6 d-flex justify-content-end ">
+                                        <i class="star stargrey  fas fa-star" data-index="0"></i>
+                                        <i class="star stargrey  fas fa-star" data-index="1"></i>
+                                        <i class="star stargrey fas fa-star" data-index="2"></i>
+                                        <i class="star stargrey  fas fa-star" data-index="3"></i>
+                                        <i class="star stargrey fas fa-star" data-index="4"></i>
+                                    </div>
+ 
                                     @foreach($products as $product)
                                     <div class="modal fade" id="view_{{$product->id}}" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                           <div class="modal-dialog modal-lg">
@@ -205,7 +215,7 @@
                                                            {{$product->user->email}} 
                                                     </div>
                                                     <div class="col-md-6">
-                                                    <button type="button" class="btn btn-primary ">Demande de reservation</button>
+                                                    <!-- <button type="button" class="btn btn-primary ">Demande de reservation</button> -->
                                                     </div>
                                                     <div class="col-md-12 col-xs-12 d-flex justify-content-start font-weight-bold blue mt-3">
                                                           Renseignez-vous sur ce bien

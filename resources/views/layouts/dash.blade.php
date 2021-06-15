@@ -2,23 +2,19 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags-->
+   
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Title Page-->
     <title>Dashboard</title>
 
-    <!-- Fontfaces CSS-->
     <link href="dashboard/css/font-face.css" rel="stylesheet" media="all">
     <link href="dashboard/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <link href="dashboard/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
     <link href="dashboard/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
-    <!-- Bootstrap CSS-->
     <link href="dashboard/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
-    <!-- Vendor CSS-->
     <link href="dashboard/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
     <link href="dashboard/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
     <link href="dashboard/vendor/wow/animate.css" rel="stylesheet" media="all">
@@ -27,14 +23,14 @@
     <link href="dashboard/vendor/select2/select2.min.css" rel="stylesheet" media="all">
     <link href="dashboard/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
 
-    <!-- Main CSS-->
     <link href="dashboard/css/theme.css" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="dashboard/css/accordion.css">
 
 </head>
 
 <body class="animsition">
     <div class="page-wrapper">
-        <!-- HEADER MOBILE-->
+       
         <header class="header-mobile d-block d-lg-none">
             <div class="header-mobile__bar">
                 <div class="container-fluid">
@@ -54,7 +50,7 @@
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
                         <li class="has-sub">
-                            <a class="js-arrow" href="#">
+                            <a class="js-arrow" href="{{asset('index')}}">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
@@ -64,15 +60,13 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="Liste.html">Modals</a>
+                            <a href="{{asset('liste')}}">Liste</a>
                         </li>
                     </ul>
                 </div>
             </nav>
         </header>
-        <!-- END HEADER MOBILE-->
 
-        <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo ">
                 <a href="#">
@@ -83,7 +77,7 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
-                            <a class="js-arrow" href="#">
+                            <a class="js-arrow" href="{{asset('setting_bien')}}">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
@@ -92,7 +86,7 @@
                             </ul>
                         </li>
                         <li class="active has-sub">
-                            <a class="js-arrow" href="#">
+                            <a class="js-arrow" href="{{asset('liste')}}">
                                 <i class="fas fa-tachometer-alt"></i>Listes</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
@@ -110,35 +104,33 @@
                 </nav>
             </div>
         </aside>
-        <!-- END MENU SIDEBAR-->
 
-        <!-- PAGE CONTAINER-->
         <div class="page-container">
-            <!-- HEADER DESKTOP-->
+
             <header class="header-desktop">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="header-wrap">
-                            <form class="form-header" action="" method="POST">
+                            <!-- <form class="form-header" action="" method="POST">
                                 <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
                                 <button class="au-btn--submit" type="submit">
                                     <i class="zmdi zmdi-search"></i>
                                 </button>
-                            </form>
-                            <div class="header-button">
+                            </form> -->
+                            <div class="header-button d-flex justify-content-end">
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                                            <img src="{{asset('images/avatar.png')}}" alt="John Doe" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">john doe</a>
+                                            <a class="js-acc-btn" href="#">Admin</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                                                        <img src="{{asset('images/avatar.png')}}" alt="John Doe" />
                                                     </a>
                                                 </div>
                                             </div>
